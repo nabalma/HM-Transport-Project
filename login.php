@@ -28,7 +28,7 @@
             </div>
 
             <div class="me-2 ">
-                <button class="mb-1 w-100 btn btn-lg btn-primary " type="submit ">Sign in</button>
+                <button class="mb-1 w-100 btn btn-lg btn-primary " type="submit ">Se connecter</button>
             </div>
             <hr>
             <p> Première Visite ? <a href="creation_compte.php">Créer votre compte</a></p>
