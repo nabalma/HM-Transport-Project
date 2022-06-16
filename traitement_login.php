@@ -1,4 +1,5 @@
 <?php ob_start();?> 
+<?php session_start();?> 
 <?php include "includes/header.php"; ?>
 <?php include "includes/db.php"; ?>
 <?php include "includes/harsh.php"; ?>
@@ -58,7 +59,7 @@ if(isset($_POST['login'])){
                                       break;
 
                                       case 3:
-                                      $db_user_profil = "Gestionnaire des Chaufeurs";
+                                      $db_user_profil = "Gestionnaire des Chauffeurs";
                                       break;
 
                                       case 4:
@@ -91,38 +92,59 @@ if(isset($_POST['login'])){
 
 if ($user_email !== $db_user_nom &&
 harsh($user_password) !== $db_user_password) {
- header("Location: ./login.php");
- 
+header("Location: ./login.php"); 
  exit;
+}
+else{
+
+$_SESSION['sess_nom']= $db_user_nom;
+$_SESSION['sess_prenom']= $db_user_prenom;
+$_SESSION['sess_email']= $db_user_email;
+$_SESSION['sess_password']= $db_user_password;
+$_SESSION['sess_profil']= $db_user_profil;
+
+
+  echo'<div class="container">
+
+  <div class="mt-5 mb-5 alert alert-light w-50 mx-auto" role="alert">
+    <p class="mt-5"></p>
+        <h5 class="h5 fw-bold text-dark alert-heading">Bienvenu !   ';echo($db_user_email);echo'</h5>
+        <p><h5 class="alert-heading text-success">Vous êtes connectés avec succés</h5></p>
+        <hr>';
+
+  echo' <p class="mb-0 fs-5 h5" ><span class="fw-bold">Nom</span> : '; echo($db_user_nom); echo'</p>
+      <hr>';
+  
+  echo'<p class="mb-0 fs-5 h5" ><span class="fw-bold">Prénom</span> : ';echo($db_user_prenom);echo'</p>
+      <hr>';
+  echo'<p class="mb-0 fs-5 h5" ><span class="fw-bold">Email</span> : '; echo($db_user_email);echo'</p>
+      <hr>';
+
+  echo'<p class="mb-0 fs-5 h5" ><span id = "profils" class="fw-bold">Profil</span> : '; echo($db_user_profil); echo'</p>
+      <hr>';
+
+  echo'<form action="acceuil.php" method ="post">';
+  echo'<p class="mt-3 mx-auto d-flex justify-content-center"><button name = "acceuil" type="submit" class="btn btn-outline-primary btn-lg">Allez à la page d\'acceuil correspondant à votre profil</button></p>
+</form>
+</div>
+</div>';
+  
 }
 
 ?>
 
-<div class="container">
 
-<div class="mt-5 mb-5 alert alert-light w-50 mx-auto" role="alert">
-  <p class="mt-5"></p>
-      <h5 class="h5 fw-bold text-dark alert-heading">Bienvenu ! <?php echo($db_user_email) ?>. .... </h5>
-      <p><h5 class="alert-heading text-success">Vous êtes connectés avec succés .</h5></p>
-      <hr>
 
-      <p class="mb-0 fs-5 h5" ><span class="fw-bold">Nom</span>      : <?php echo($db_user_nom) ?></p>
-      <hr>
+     
 
-      <p class="mb-0 fs-5 h5" ><span class="fw-bold">Prénom</span>      : <?php echo($db_user_prenom) ?></p>
-      <hr>
+      
 
-      <p class="mb-0 fs-5 h5" ><span class="fw-bold">Email</span>      : <?php echo($db_user_email) ?></p>
-      <hr>
+      
 
-      <p class="mb-0 fs-5 h5" ><span id = "profils" class="fw-bold">Profil</span>      : <?php echo($db_user_profil) ?></p>
-      <hr>
-<form action="acceuil.php" method ="post">
-  <p class="mt-3 mx-auto d-flex justify-content-center"><button name = "acceuil" type="submit" class="btn btn-outline-primary btn-lg">Allez à la page d'acceuil correspondant à votre profil</button></p>
-</form>
-</div>
+      
 
-</div>
+  
+
 
   <!----------------------------------------------------------------------------------------------------------------->
 <?php include "includes/footer.php"; ?>

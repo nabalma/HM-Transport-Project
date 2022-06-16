@@ -12,10 +12,8 @@ function VerifCreationCompte() {
     }
 }
 
-/*
+
 function alertErreurCredentiels() {
-    let alerte = document.getElementById("erreurCredentiels");
-    alerte.classList.remove("invisible");
-    return;
+    let boiteAlerte = document.getElementById("erreurCredentiels");
+    boiteAlerte.classList.remove("invisible");
 }
-*/

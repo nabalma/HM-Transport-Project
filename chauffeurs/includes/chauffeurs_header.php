@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -69,9 +69,9 @@
 
 
                         <select class="form-select w-75" aria-label="Default select example">
-                        <option selected>Qui est connecté ?</option>
+                        <option value="1" selected><?php echo($_SESSION['sess_prenom']) ?></option>
                         
-                        <option value="1">Log Out</option>
+                        <option value="2">Log Out</option>
                         
                         </select> 
 
