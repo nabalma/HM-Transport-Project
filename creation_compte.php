@@ -10,46 +10,46 @@
 
 <!--Registration Content-->
  <div class="container">
-<h1 class="h3 mt-1 mb-3 fw-normal text-center ">Enregistrez - Vous</h1>
+<h1 class="h3 mt-1 mb-1 fw-normal text-center ">Enregistrez - Vous</h1>
  
-<form class="mt-1 border border-3 w-50 mx-auto" method= "post" action = "acceuil.php" onsubmit="return VerifCreationCompte();">
+<form class="mt-1 border border-3 w-50 mx-auto" method= "post" action = "confirmation_compte.php" onsubmit="return VerifCreationCompte();">
  
-    <div class="ms-1 me-1 mt-2 row mb-2 w-100">
+    <div class="ms-1 me-1 mt-1 row mb-1 w-100">
           <label for="inputNom" class="col-sm-4 col-form-label">Nom</label>
           <div class="col-sm-8">
             <input type="text" class="form-control" id="inputNom" name="inputNom" required >
           </div>
     </div>
 
-    <div class="ms-1 me-1 mt-1 row mb-2 w-100">
+    <div class="ms-1 me-1 mt-1 row mb-1 w-100">
           <label for="inputPrenom" class="col-sm-4 col-form-label">Prénom</label>
           <div class="col-sm-8">
             <input type="text" class="form-control" id="inputPrenom" name ="inputPrenom" required>
           </div>
     </div>
 
-    <div class="ms-1 me-1 row mt-1 mb-2 w-100">
+    <div class="ms-1 me-1 row mt-1 mb-1 w-100">
           <label for="inputEmail" class="col-sm-4 col-form-label">Email</label>
           <div class="col-sm-8">
             <input type="email" class="form-control" id="inputEmail" name="inputEmail" required >
           </div>
     </div>
 
-    <div class="ms-1 me-1 row mt-1 mb-2 w-100">
+    <div class="ms-1 me-1 row mt-1 mb-1 w-100">
           <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
           <div class="col-sm-8">
             <input type="password" class="form-control" id="inputPassword" name="inputPassword" minlength="8" maxlength="12" required>
           </div>
     </div>
 
-    <div class="ms-1 me-1 row mt-1 mb-2 w-100">
+    <div class="ms-1 me-1 row mt-1 mb-1 w-100">
           <label for="confirmPassword" class="col-sm-4 col-form-label">Confirm Password</label>
           <div class="col-sm-8">
             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" minlength="8" maxlength="12" required>
           </div>
     </div>
 
-    <fieldset class="ms-1 me-1 row mt-1 mb-2">
+    <fieldset class="ms-1 me-1 row mt-1 mb-1">
               <legend class="col-form-label col-sm-4 pt-0">Profil d'utilisateur</legend>
                   <div class="col-sm-8">
 
@@ -61,28 +61,35 @@
                           </div>
 
                           <div class="form-check">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gestionChauffeurs" value="2">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="superviseur" value="2">
+                              <label class="form-check-label" for="superviseur">
+                              Superviseur
+                              </label>
+                          </div>
+
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gestionChauffeurs" value="3">
                               <label class="form-check-label" for="gestionChauffeurs">
                               Gestionnaire des chauffeurs
                               </label>
                           </div>
 
                           <div class="form-check">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gestionVoyages" value="3">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gestionVoyages" value="4">
                               <label class="form-check-label" for="gestionVoyages">
                               Gestionnaire des voyages
                               </label>
                           </div>
 
                           <div class="form-check">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="gestionCamions" value="4">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gestionCamions" value="5">
                               <label class="form-check-label" for="gestionCamions">
                               Gestionnaire des camions
                               </label>
                           </div>
 
                           <div class="form-check">
-                              <input class="form-check-input" type="radio" name="gridRadios" id="autre" value="5" checked>
+                              <input class="form-check-input" type="radio" name="gridRadios" id="autre" value="6" checked>
                               <label class="form-check-label" for="autre">
                               Autre
                               </label>

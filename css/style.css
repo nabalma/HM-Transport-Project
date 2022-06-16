@@ -1,9 +1,9 @@
-body {
-    background-color: rgba(212, 210, 210, 0.992);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.invisible {
-    visibility: hidden;
-    display: none;
-}
+    body {
+        background-color: rgba(212, 210, 210, 0.992);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .invisible {
+        visibility: hidden;
+        display: none;
+    }
