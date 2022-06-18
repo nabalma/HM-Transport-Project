@@ -69,7 +69,8 @@
 
 
                         <select class="text-center form-select w-75" aria-label="Default select example">
-                        <option value="1" selected><?php echo($_SESSION['sess_prenom']) ?></option>
+                        <option value="1" selected><?php echo($_SESSION['sess_prenom']) ?>
+                        </option>
                         
                         <option value="2">Log Out</option>
                         

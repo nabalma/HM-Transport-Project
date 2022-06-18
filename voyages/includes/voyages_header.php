@@ -36,21 +36,21 @@
                         <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Admin</a>
+                        <a class="nav-link disabled" href="#">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Superviseur</a>
+                        <a class="nav-link disabled " href="#">Superviseur</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Gestion Opérations
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Gestionnaire Camions</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Gestionnaire Camions</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Gestionnaire Chauffeurs</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Gestionnaire Chauffeurs</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
