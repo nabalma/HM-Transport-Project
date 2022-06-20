@@ -100,7 +100,6 @@ else{
 $_SESSION['sess_nom']= $db_user_nom;
 $_SESSION['sess_prenom']= $db_user_prenom;
 $_SESSION['sess_email']= $db_user_email;
-$_SESSION['sess_password']= $db_user_password;
 $_SESSION['sess_profil']= $db_user_profil;
 
 

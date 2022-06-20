@@ -61,21 +61,46 @@
                         <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Tableau de bord</a>
                     </li>
                 </ul>
-                <div class="d-flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" fill="#150452" class="bi bi-person-circle" viewBox="0 0 16 16">
+
+
+
+                <div class="dropdown">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="#150452" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                        </svg>
+        </svg>
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo($_SESSION['sess_prenom']) ?>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-outline-dark" aria-labelledby="dropdownMenuButton2">
+                  
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="#150452" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            </svg>
+                         Profil
+                        </a>
+                    </li>
+
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                        <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="#150452" class="bi bi-power" viewBox="0 0 16 16">
+                        <path d="M7.5 1v7h1V1h-1z"/>
+                        <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+                        </svg>Log Out
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    
+            </ul>
+        </div>
 
 
-                        <select class="text-center form-select w-75" aria-label="Default select example">
-                        <option value="1" selected><?php echo($_SESSION['sess_prenom']) ?></option>
-                        
-                        <option value="2">Log Out</option>
-                        
-                        </select> 
 
-                </div>
+
+        
             </div>
         </div>
     </nav>
