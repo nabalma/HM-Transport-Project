@@ -15,6 +15,16 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="/js/allezAvotrePage.js" defer></script>
+
+
+
+    <!-- Importation de la librairie de Chart-js -->
+    <script src="js/librairie_chart_js_3_8_0.js"></script>
+
+
+    <!-- Importation du fichier code des dashboard de Chart-js -->
+    <script src="js/dashboardchart.js" defer></script>
+
     
      <title>HC ROAD TRANS MGT</title>
     

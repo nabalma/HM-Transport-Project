@@ -15,6 +15,8 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/jquery-3.6.0.min.js"></script>
 
+    
+
 
 
     <title>Acceuil Voyages</title>
@@ -58,7 +60,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Tableau de bord</a>
+                        <a class="nav-link" href="../tableau_de_bord.php" tabindex="-1" aria-disabled="true">Tableau de bord</a>
                     </li>
                 </ul>
 
