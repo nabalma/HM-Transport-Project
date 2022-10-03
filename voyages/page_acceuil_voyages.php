@@ -23,7 +23,7 @@
       </div>
       </div>
 
-      <div class="col"></div> 
+      <div class="col my-auto"><h3>(<?php echo date("Y"); ?>)</h3></div> 
 </div>
 
 <!--les lignes des KPIS -->
