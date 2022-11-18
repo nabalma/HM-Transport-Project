@@ -22,7 +22,7 @@ class DepotChargement{
     // Insert data
     public function insertData($post){
 
-        $var_Designation_Depot_Chargement= $this->con->real_escape_string($_POST['designation']);
+        $var_Designation_Depot_Chargement= $this->con->real_escape_string($_POST['designationDepotChargement']);
         $var_Duree_Trajet_allee_Chargement_Target= $this->con->real_escape_string($_POST['dureeTrajetAlleeChargementTarget']);
         $var_Duree_Avant_Chargement_Target=$this->con->real_escape_string($_POST['dureeAvantChargementTarget']);
         $var_Duree_Chargement_Target= $this->con->real_escape_string($_POST['dureeChargementTarget']);
@@ -40,7 +40,7 @@ class DepotChargement{
         if($result){
             echo 'Object inserted successfully! <br/>';
             // Redirection
-            header("Location:../../superviseur/page_superviseurs.php?action=ajout&depot=$var_Designation_Depot_Chargement");
+            header("Location:../../superviseur/page_superviseurs.php?action=ajoutDepotChargement&depot=$var_Designation_Depot_Chargement");
         }else{
             echo 'Failed to register, try again!';
         }

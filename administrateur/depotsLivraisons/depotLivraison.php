@@ -23,7 +23,7 @@ class DepotLivraison{
     public function insertData($post){
 
         
-        $var_designation_Depot_Livraison =$this->con->real_escape_string($_POST['designation']);
+        $var_designation_Depot_Livraison =$this->con->real_escape_string($_POST['designationDepotLivraison']);
         $var_duree_Trajet_allee_Livraison_Target =$this->con->real_escape_string($_POST['dureeTrajetAlleeLivraisonTarget']);
         $var_duree_Avant_Livraison_Target = $this->con->real_escape_string($_POST['dureeAvantLivraisonTarget']);
         $var_duree_Livraison_Target =$this->con->real_escape_string($_POST['dureeLivraisonTarget']);
@@ -39,6 +39,8 @@ class DepotLivraison{
         $result = $this->con->query($new_query);
         if($result){
             echo 'Object inserted successfully! <br/>';
+            // Redirection
+            header("Location:../../superviseur/page_superviseurs.php?action=ajoutDepotLivraison&depot=$var_designation_Depot_Livraison");
         }else{
             echo 'Failed to register, try again!';
         }
