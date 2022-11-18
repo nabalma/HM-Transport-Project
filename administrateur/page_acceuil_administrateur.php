@@ -3,8 +3,6 @@
 <!-------------------------------------------------------------------->
 <div class="container">
 
-
-
 <!--Titre de la page -->
 <div class="text-center mt-2 w-25 mx-auto card">
 <div class="py-2">
