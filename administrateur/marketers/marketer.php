@@ -1,6 +1,6 @@
 <?php
 
-class Transitaire{
+class Marketer{
 
     // Cobfigurations DB
     private $servername = '127.0.0.1';
@@ -23,21 +23,21 @@ class Transitaire{
     public function insertData($post){
 
         
-        $var_designation_transitaire =$this->con->real_escape_string($_POST['designationTransitaire']);
-        $duree_Traitement_BINGO_Target =$this->con->real_escape_string($_POST['dureeTraitementBINGOTarget']);
-        
+        $var_designation_marketer =$this->con->real_escape_string($_POST['designationMarketer']);
+        $duree_Emission_OC_Target=$this->con->real_escape_string($_POST['dureeEmissionOCTarget']);
+        $duree_Emission_BonSonabhy_Target=$this->con->real_escape_string($_POST['dureeEmissionBonSonabhyTarget']);
 
 
    
-        $new_query = "INSERT INTO transitaires  (Designation_Transitaire, Duree_Traitement_BINGO_Target)
-        VALUES('$var_designation_transitaire',$duree_Traitement_BINGO_Target)";
+        $new_query = "INSERT INTO marketers  (Designation_Marketer, Duree_Emission_OC_Target,Duree_Emission_BonSnabhy_Target)
+        VALUES('$var_designation_marketer',$duree_Emission_OC_Target,$duree_Emission_BonSonabhy_Target)";
 
 
         $result = $this->con->query($new_query);
         if($result){
             echo 'Object inserted successfully! <br/>';
              // Redirection
-             header("Location:../../superviseur/page_superviseurs.php?action=ajoutTransitaire&adding=$var_designation_transitaire");
+             header("Location:../../superviseur/page_superviseurs.php?action=ajoutMarketer&adding=$var_designation_marketer");
 
         }else{
             echo 'Failed to register, try again!';

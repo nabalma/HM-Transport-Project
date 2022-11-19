@@ -15,9 +15,9 @@
 
 <div class="row"></div>
 <hr>
-<div class="row">bfsb</div>
+<div class="row"></div>
 <hr>
-<div class="row">gffgnfs</div>
+<div class="row"></div>
 <hr>
 <div class="row">
 

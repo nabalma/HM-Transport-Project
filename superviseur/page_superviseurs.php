@@ -13,7 +13,7 @@
 </div>
 <hr>
 
-<div class="row">
+<div class="row"> <!--Ligne 1 -->
 
   <div class="col border border-primary rounded-3 me-1"> <!--Col Depot de Chargement -->
         <div class="mt-1 mb-1 mx-auto row btn btn-dark w-100">CREATION DEPOTS DE CHARGEMENTS</div>
@@ -22,7 +22,7 @@
         if(isset($_GET["action"]) && $_GET["action"]=="ajoutDepotChargement"){
           echo'
           <div class="mb-1 alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Félicitations !</strong> Dépot '.$_GET["depot"].' crée.
+          <strong> Dépot '.$_GET["adding"].' crée ! </strong>.
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
         }
@@ -82,7 +82,7 @@
       <div class="row mt-1 mb-1">
         
         <div class="col"></div>
-        <div class="col d-flex justify-content-end"><button name="submitDepotChargement" type="submit" class="btn btn-outline-success">Créer</button></div>
+        <div class="col d-flex justify-content-end"><button name="submitDepotChargement" type="submit" class="btn btn-outline-success">Nouveau</button></div>
       </div>
         
       </form>
@@ -97,7 +97,7 @@
         if(isset($_GET["action"]) && $_GET["action"]=="ajoutDepotLivraison"){
           echo'
           <div class="mb-1 alert alert-success alert-dismissible fade show" role="alert">
-          <strong>Félicitations !</strong> Dépot '.$_GET["depot"].' crée.
+          <strong> Dépot '.$_GET["adding"].' crée ! </strong>.
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
         }
@@ -159,28 +159,113 @@
       <div class="row mt-1 mb-1">
         
         <div class="col"></div>
-        <div class="col d-flex justify-content-end"><button name="submitDepotLivraison" type="submit" class="btn btn-outline-success">Créer</button></div>
+        <div class="col d-flex justify-content-end"><button name="submitDepotLivraison" type="submit" class="btn btn-outline-success">Nouveau</button></div>
       </div>
         
       </form>
   </div> <!--Fin Col Depot de Livraison -->
     
-    <div class="col">TRANSITAIRES</div>
-   
-    <div class="col">MARKETEURS</div>
+  <div class="col border border-primary rounded-3 me-1">  <!--Col Marketers -->
+        <div class="mt-1 mb-1 mx-auto row btn btn-dark w-100">CREATION MARKETERS</div>
 
-</div>
+       <?php
+        if(isset($_GET["action"]) && $_GET["action"]=="ajoutMarketer"){
+          echo'
+          <div class="mb-1 alert alert-success alert-dismissible fade show" role="alert">
+          <strong> Marketer '.$_GET["adding"].' crée ! </strong>.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        }
+        
+
+        ?>
+
+            <form method="POST" action="../administrateur/marketers/ajoutMarketer.php">
+        <div class="mb-1 row d-flex justify-content-center">
+          <div class="col-sm-10 w-100">
+            <input type="text" class="form-control" id="designationMarketer" name="designationMarketer" placeholder="Désignation Marketer">
+          </div>
+        </div>
+
+        <div class="mb-1 row d-flex justify-content-center">
+          <div class="col-sm-10 w-100">
+            <input type="text" class="form-control" id="dureeEmissionOCTarget" name="dureeEmissionOCTarget" placeholder="Durée Emission OC (Target)">
+          </div>
+        </div>
+
+        <div class="mb-1 row d-flex justify-content-center">
+          <div class="col-sm-10 w-100">
+            <input type="text" class="form-control" id="dureeEmissionBonSonabhyTarget" name="dureeEmissionBonSonabhyTarget" placeholder="Durée Emission Bon Sonabhy (Target)">
+          </div>
+        </div>
+
+      
+        
+
+      <div class="row mt-1 mb-1">
+        
+        <div class="col"></div>
+        <div class="col d-flex justify-content-end"><button name="submitMarketer" type="submit" class="btn btn-outline-success">Nouveau</button></div>
+      </div>
+        
+      </form>
+  </div> <!--Fin Col Marketers -->
 
 
 
 
 
+  <div class="col border border-primary rounded-3 me-1"> <!--Col Transitaires -->
+        <div class="mt-1 mb-1 mx-auto row btn btn-dark w-100">CREATION TRANSITAIRES</div>
 
+       <?php
+        if(isset($_GET["action"]) && $_GET["action"]=="ajoutTransitaire"){
+          echo'
+          <div class="mb-1 alert alert-success alert-dismissible fade show" role="alert">
+          <strong> Transitaire '.$_GET["adding"].' crée ! </strong>.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+        }
+        
 
+        ?>
 
+            <form method="POST" action="../administrateur/transitaires/ajoutTransitaire.php">        
+            <div class="mb-1 row d-flex justify-content-center">
+          <div class="col-sm-10 w-100">
+            <input type="text" class="form-control" id="designationTransitaire" name="designationTransitaire" placeholder="Désignation Transitaire">
+          </div>
+        </div>
 
+        <div class="mb-1 row d-flex justify-content-center">
+          <div class="col-sm-10 w-100">
+            <input type="text" class="form-control" id="dureeTraitementBINGOTarget" name="dureeTraitementBINGOTarget" placeholder="Durée Traitement BINGO (Target)">
+          </div>
+        </div>
+       
+
+      <div class="row mt-1 mb-1">
+        
+        <div class="col"></div>
+        <div class="col d-flex justify-content-end"><button name="submitTransitaire" type="submit" class="btn btn-outline-success">Nouveau</button></div>
+      </div>
+        
+      </form>
+
+  </div> <!--Fin Col Transitaire -->
+
+</div> <!--Fin de le Ligne 1 -->
 
 <hr>
+
+<div class="row">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col">
+  <button type="button" class="btn btn-primary active w-100">VOIR LA LISTE</button>
+  </div>
+</div>
 
 </div>
 
