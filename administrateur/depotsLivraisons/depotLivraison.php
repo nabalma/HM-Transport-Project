@@ -40,7 +40,7 @@ class DepotLivraison{
         if($result){
             echo 'Object inserted successfully! <br/>';
             // Redirection
-            header("Location:../../superviseur/page_superviseurs.php?action=ajoutDepotLivraison&adding=$var_designation_Depot_Livraison");
+            header("Location:../page_administrateurs.php?action=ajoutDepotLivraison&adding=$var_designation_Depot_Livraison");
         }else{
             echo 'Failed to register, try again!';
         }

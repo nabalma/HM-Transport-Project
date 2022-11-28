@@ -37,7 +37,7 @@ class Transitaire{
         if($result){
             echo 'Object inserted successfully! <br/>';
              // Redirection
-             header("Location:../../superviseur/page_superviseurs.php?action=ajoutTransitaire&adding=$var_designation_transitaire");
+             header("Location:../page_administrateurs.php?action=ajoutTransitaire&adding=$var_designation_transitaire");
 
         }else{
             echo 'Failed to register, try again!';

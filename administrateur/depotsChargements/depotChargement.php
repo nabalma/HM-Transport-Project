@@ -40,7 +40,7 @@ class DepotChargement{
         if($result){
             echo 'Object inserted successfully! <br/>';
             // Redirection
-            header("Location:../../superviseur/page_superviseurs.php?action=ajoutDepotChargement&adding=$var_Designation_Depot_Chargement");
+            header("Location:../page_administrateurs.php?action=ajoutDepotChargement&adding=$var_Designation_Depot_Chargement");
         }else{
             echo 'Failed to register, try again!';
         }

@@ -37,7 +37,7 @@ class Marketer{
         if($result){
             echo 'Object inserted successfully! <br/>';
              // Redirection
-             header("Location:../../superviseur/page_superviseurs.php?action=ajoutMarketer&adding=$var_designation_marketer");
+             header("Location:../page_administrateurs.php?action=ajoutMarketer&adding=$var_designation_marketer");
 
         }else{
             echo 'Failed to register, try again!';
