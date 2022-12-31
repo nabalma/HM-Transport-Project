@@ -32,8 +32,27 @@ $planvoyage=$_POST['planvoyage'];
 $numbl=$_POST['numbl'];
 $vollivre=$_POST['vollivre'];
 
+$nbreVoyagesEnCours=0;
+//Verification dexistance dun voyage non encore terminé pour le camion selectionné
+$sql1="SELECT COUNT(*) AS nbreVoyagesEnCours FROM voyages WHERE ref_Camion_Voyage='$camion' AND statutVoyage=1";
+$resultat=$conn->query($sql1);
+while ($ligne=$resultat->fetch_assoc()){
+  $nbreVoyagesEnCours=$ligne["nbreVoyagesEnCours"];
+}
 
-$sql = "INSERT INTO voyages (req_Transporteur, depot_de_chargement, depot_de_livraison, ref_Chauffeur_Voyage, ref_Camion_Voyage, ref_Transitaire, bon_dEnlevement_Sonabhy, tournee_Marketer, ordre_de_Chargement_Marketer, plan_de_Voyage, bL_Livraison_Client, volume_livre) VALUES ('$reqTransporteur', '$depotChargement', '$depotLivraison', '$chauffeur', '$camion', '$transitaire', '$besonabhy', '$tournee', '$numoc', '$planvoyage', '$numbl', '$vollivre')";
+if($nbreVoyagesEnCours!=0){
+
+  echo'<div class="mt-3 row mx-auto w-75">
+      <div class="alert alert-danger" role="alert">
+      <b>Impossible de creer ce voyage !.. </b> Le camion selectionné est déja en cours de tournée .
+      </div>
+    </div>';
+
+}
+else
+{
+
+  $sql = "INSERT INTO voyages (req_Transporteur, depot_de_chargement, depot_de_livraison, ref_Chauffeur_Voyage, ref_Camion_Voyage, ref_Transitaire, bon_dEnlevement_Sonabhy, tournee_Marketer, ordre_de_Chargement_Marketer, plan_de_Voyage, bL_Livraison_Client, volume_livre) VALUES ('$reqTransporteur', '$depotChargement', '$depotLivraison', '$chauffeur', '$camion', '$transitaire', '$besonabhy', '$tournee', '$numoc', '$planvoyage', '$numbl', '$vollivre')";
 
 if ($conn->query($sql) === TRUE) {
 
@@ -49,6 +68,9 @@ if ($conn->query($sql) === TRUE) {
   }
 
 $conn->close();
+}
+
+
 
 
 }

@@ -53,8 +53,6 @@
     </div>
   </div>
 
-
-
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
@@ -67,6 +65,22 @@
     <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample1">
       <div class="accordion-body">
       <a type="submit" class="btn btn-outline-success" href="addVoyages.php">Créer Voyage</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
+      <strong>
+      <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="#150452" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+  <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z"/>
+</svg>Editer un Safe to Dispatch</strong>
+      </button>
+    </h2>
+    <div id="collapseThree1" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample1">
+      <div class="accordion-body">
+      <a type="submit" class="btn btn-outline-success" href="ficheSafeToDispatch.php">Safe to Dispatch</a>
       </div>
     </div>
   </div>
@@ -175,7 +189,7 @@
     </div>
   </div>
 
-  <!--
+  
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
@@ -191,7 +205,7 @@
       </div>
     </div>
   </div>
--->
+
 
 </div>
 

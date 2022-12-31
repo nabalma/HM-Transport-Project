@@ -19,7 +19,7 @@
 
 
 
-    <title>Acceuil Voyages</title>
+    <title>Gestion Voyages</title>
 </head>
 
 <body>

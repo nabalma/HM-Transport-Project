@@ -9,6 +9,9 @@ $row;
 if(isset($_GET['refVoy'])){
     $ref=$_GET['refVoy'];
     $row = rechercherleVoyage($ref);
+
+    $lecamion=rechercherlesDonneesduCamion($row["ref_Camion_Voyage"]);
+    $capaciteCamion=$lecamion["capacite_Compatriment_C1"]+$lecamion["capacite_Compatriment_C2"]+$lecamion["capacite_Compatriment_C3"]+$lecamion["capacite_Compatriment_C4"]+$lecamion["capacite_Compatriment_C5"]+$lecamion["capacite_Compatriment_C6"];
 }
 
 ?>
@@ -40,7 +43,7 @@ if(isset($_GET['refVoy'])){
     <div class="col"></div> 
   </div>
  
-<form action="traitementEditVoyage.php" method="POST"> 
+<form action="traitementEditVoyage.php?refVoyage=<?php echo $ref?>" method="POST"> 
     <div class="row">
 
         <!--Colonne Voyages -->
@@ -56,14 +59,13 @@ if(isset($_GET['refVoy'])){
 
                     <div class="row g-0">
                     <div class="mb-1 row">
-                        <div class="col"><label type="text" class="form-control bg-light" id="refVoyage">Ref.Voy</label></div>
-                        <div class="col"><label type="text" class="form-control bg-light text-danger text-center" id="refVoyage" ><?php echo $_GET["refVoy"] ?></label></div> 
-                    
+                        <div class="col"><label type="text" class="form-control bg-light" id="refVoyage">Ref.Voy</label></div>           
+                        <div class="col"><input type="text" class="form-control bg-light text-danger text-center" id="refVoyage" name="refVoyage" disabled value=<?php echo $_GET["refVoy"]?>></input></div> 
                     
                     </div>
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="reqTransporteur">Req.Transporteur</label></div>
-                        <div class="col"><input type="text" class="form-control bg-light text-dark" id="reqTransporteur" name="reqTransporteur" value=<?php echo $row["req_Transporteur"] ?> ></input></div> 
+                        <div class="col"><input type="text" class="form-control bg-light text-primary" id="reqTransporteur" name="reqTransporteur" value=<?php echo $row["req_Transporteur"]?>></input></div> 
                         
                     
                     </div>
@@ -71,8 +73,8 @@ if(isset($_GET['refVoy'])){
                         <div class="col"><label type="text" class="form-control bg-light" id="depotChargement">Depot de Chargmt</label></div>
                         <div class="col">
 
-                        <select class="form-select text-dark" aria-label="Default select example" name="depotChargement">
-                            <option selected><?php designationDepotChargement($row["depot_de_chargement"]) ?></option>
+                        <select class="form-select text-primary" aria-label="Default select example" name="depotChargement">
+                            <?php designationDepotChargement($row["depot_de_chargement"]) ?>
                             <?php     
                                 genererDepotChargementCreationVoyage();                    
                             ?>;
@@ -85,8 +87,8 @@ if(isset($_GET['refVoy'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="depotLivraison">Depot de Livraison</label></div>
                         <div class="col">
-                        <select class="form-select text-dark" aria-label="Default select example" name="depotLivraison" >
-                            <option selected><?php designationDepotLivraison($row["depot_de_livraison"]) ?></option>
+                        <select class="form-select text-primary" aria-label="Default select example" name="depotLivraison" >
+                            <?php designationDepotLivraison($row["depot_de_livraison"]) ?>
                             <?php     
                                 genererDepotLivraisonCreationVoyage();                    
                             ?>;                 
@@ -98,8 +100,8 @@ if(isset($_GET['refVoy'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="refChauffeur">Ref.Chauffeur</label></div>
                         <div class="col">
-                        <select class="form-select text-dark" aria-label="Default select example" name="chauffeur">
-                            <option selected><?php designationChauffeur($row["ref_Chauffeur_Voyage"]) ?></option>
+                        <select class="form-select text-primary" aria-label="Default select example" name="chauffeur">
+                            <?php designationChauffeur($row["ref_Chauffeur_Voyage"]) ?>
                             <?php     
                                 genererChauffeursCreationVoyage();                    
                             ?>;     
@@ -112,8 +114,8 @@ if(isset($_GET['refVoy'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="camion">Ref.Camion</label></div>
                         <div class="col">
-                        <select class="form-select text-dark" aria-label="Default select example" name="camion" >
-                            <option selected><?php designationCamion($row["ref_Camion_Voyage"]) ?></option>
+                        <select class="form-select text-primary" aria-label="Default select example" name="camion" >
+                            <?php designationCamion($row["ref_Camion_Voyage"]) ?>
                             <?php     
                                 genererCamionsCreationVoyage();                    
                             ?>;  
@@ -125,7 +127,7 @@ if(isset($_GET['refVoy'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="besonabhy">Numéro BE (Sonabhy)</label></div>
                         <div class="col">
-                        <input type="text" class="form-control bg-light text-dark" id="besonabhy" name="besonabhy" value=<?php echo $row["bon_dEnlevement_Sonabhy"] ?>></input>
+                        <input type="text" class="form-control bg-light text-primary" id="besonabhy" name="besonabhy" value=<?php echo $row["bon_dEnlevement_Sonabhy"] ?>></input>
                         </div>                    
                     </div>
 
@@ -133,8 +135,8 @@ if(isset($_GET['refVoy'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="transitaire">Transitaire</label></div>
                         <div class="col">
-                        <select class="form-select text-dark" aria-label="Default select example" name="transitaire">
-                            <option selected><?php designationTransitaire($row["ref_Transitaire"]) ?></option>
+                        <select class="form-select text-primary" aria-label="Default select example" name="transitaire">
+                           <?php designationTransitaire($row["ref_Transitaire"]) ?>
                             <?php     
                                 genererTransitairesCreationVoyage();                    
                             ?>;  
@@ -145,14 +147,14 @@ if(isset($_GET['refVoy'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="tournee">Numéro Tournée (Marketer)</label></div>
                         <div class="col">
-                        <input type="text" class="form-control bg-light text-dark" id="tournee" name="tournee" value=<?php echo $row["tournee_Marketer"] ?> ></input>
+                        <input type="text" class="form-control bg-light text-primary" id="tournee" name="tournee" value=<?php echo $row["tournee_Marketer"] ?> ></input>
                         </div>                    
                     </div>
 
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="numoc">Numéro OC (Marketer)</label></div>
                         <div class="col">
-                        <input type="text" class="form-control bg-light text-dark" id="numoc" name="numoc" value=<?php echo $row["ordre_de_Chargement_Marketer"] ?>></input>
+                        <input type="text" class="form-control bg-light text-primary" id="numoc" name="numoc" value=<?php echo $row["ordre_de_Chargement_Marketer"] ?>></input>
                         </div>                    
                     </div>
 
@@ -162,33 +164,47 @@ if(isset($_GET['refVoy'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="planvoyage">Numéro Plan de Voyage</label></div>
                         <div class="col">
-                        <input type="text" class="form-control bg-light text-dark" id="planvoyage" name="planvoyage" value=<?php echo $row["plan_de_Voyage"] ?>></input>
+                        <input type="text" class="form-control bg-light text-primary" id="planvoyage" name="planvoyage" value=<?php echo $row["plan_de_Voyage"] ?>></input>
                         </div>                    
                     </div>
 
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="numbl">Numéro BL (Livraison)</label></div>
                         <div class="col">
-                        <input type="text" class="form-control bg-light text-dark" id="numbl" name="numbl" value=<?php echo $row["bL_Livraison_Client"] ?>></input>
-                        </div>                    
-                    </div>
-
-                    <div class="mb-1 row">
-                    <div class="col"><label type="text" class="form-control bg-light" id="vollivre">Volume Livré (Litres)</label></div>
-                        <div class="col">
-                        <input type="text" class="form-control bg-light text-dark" id="vollivre" name="vollivre" value=<?php echo $row["volume_livre"] ?>></input>
+                        <input type="text" class="form-control bg-light text-primary" id="numbl" name="numbl" value=<?php echo $row["bL_Livraison_Client"] ?>></input>
                         </div>                    
                     </div>
 
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light" id="statutVoyage">Statut Voyage</label></div>
                         <div class="col">
-                        <select class="form-select text-dark" aria-label="Default select example" name="statutVoyage">
-                            <option selected><?php designationStatutVoyage($row["statutVoyage"]) ?></option>
+                        <select class="form-select text-primary" aria-label="Default select example" name="statutVoyage">
+                            <?php designationStatutVoyage($row["statutVoyage"]) ?>
                             <?php     
                                 genererStatutVoyage();                    
                             ?>;  
                         </select>
+                        </div>                    
+                    </div>
+
+                    <div class="mb-1 row">
+                    <div class="col"><label type="text" class="form-control bg-light" id="vollivre">Volume Livré (Litres)</label></div>
+                        <div class="col">
+                        <input type="text" class="form-control bg-light text-primary" id="vollivre" name="vollivre" value=<?php echo $row["volume_livre"] ?>></input>
+                        </div>                    
+                    </div>
+
+                    <div class="mb-1 row">
+                    <div class="col"><label type="text" class="form-control bg-light text-secondary" id="coulage">Coulage (Litres)</label></div>
+                        <div class="col">
+                        <input type="text" class="form-control bg-light text-secondary" id="coulage" name="coulage" value=<?php echo $capaciteCamion-$row["volume_livre"] ?>></input>
+                        </div>                    
+                    </div>
+
+                    <div class="mb-1 row">
+                    <div class="col"><label type="text" class="form-control bg-light" id="">&nbsp</label></div>
+                        <div class="col">
+                        <input type="text" class="form-control bg-light text-secondary" id="" name="" value=""></input>
                         </div>                    
                     </div>
 
@@ -220,7 +236,7 @@ if(isset($_GET['refVoy'])){
             <div class="col">
 
                 
-                <div class="mb-4 row"><label type="text" class="form-control bg-light " id="">Ref Voy Prec.</label></div>
+                <div class="mb-4 row"><label type="text" class="form-control bg-light " id="">Ref Prec(Terminé)</label></div>
                 <hr>
                 <div class="mb-1 row"><label type="text" class="form-control bg-light " id="">Date OC</label></div>
                 <div class="mb-1 row"><label type="text" class="form-control bg-light " id="">Date Bon Sbhy</label></div>
@@ -236,18 +252,33 @@ if(isset($_GET['refVoy'])){
             </div>
             <div class="col">
 
+            <?php
+
+            //Valeur par defaut, pour gerer les exception nulle
+            $refVoyPrec= 'Inexistant';
+            $dateArrVoyPrec='Pas de données';
             
-                <div class="row mb-4"><input type="text" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="refVoyPrec"  ></input></div>
+            //Valeur reelle
+            $voyPrec=rechercherlePrecedentVoyage($_GET["refVoy"]);
+            if($voyPrec!=null){
+                $refVoyPrec= $voyPrec["ref_Voyage"];
+            $dateArrVoyPrec=$voyPrec["dateRetourDuSite"];
+            }
+            
+            
+            ?>
+
+                <div class="row mb-4"><input type="text" class="me-2 form-control bg-light text-primary text-warning text-center" id="tournee" name="refVoyPrec" disabled value=<?php echo $refVoyPrec ?> ></input></div>
                 <hr>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateOC" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateBonSbhy" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateDepart" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateArrFrtAllee" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateArrDeptChrgt" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateChrgt" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateDeparDptChrgmt" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateArrFrtRetour" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateArrOuaga" ></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateOC" value=<?php echo $row["dateOC"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateBonSbhy" value=<?php echo $row["dateBonSbhy"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateDepart" value=<?php echo $row["dateDepart"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateArrFrtAllee" value=<?php echo $row["dateArrFrtAllee"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateArrDeptChrgt" value=<?php echo $row["dateArrDepChargmt"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateChrgt" value=<?php echo $row["dateChargmt"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateDeparDptChrgmt" value=<?php echo $row["dateDepaDepChrgmt"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateArrFrtRetour" value=<?php echo $row["dateArrFrtRetour"] ?> ></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateArrOuaga" value=<?php echo $row["dateArrOuaga"] ?>></input></div>
                 <div class="mt-4 row"></div>
 
             </div>
@@ -263,28 +294,35 @@ if(isset($_GET['refVoy'])){
                 <div class="mb-1 row"><label type="text" class="form-control bg-light " id="">Inspection</label></div>
                 <div class="mb-1 row"><label type="text" class="form-control bg-light " id="">Correction Insp.</label></div>
                 <div class="mb-1 row"><label type="text" class="form-control bg-light " id="">Annalyse Suiv.</label></div>
-                <div class="mb-1 row"><label type="text" class="form-control bg-light " id="">Commentaires</label></div>
+                <div class="mb-1 row"><label type="text" class="form-control bg-light " id="">&nbsp</label></div>
                 <div class="mt-4 row"></div>
 
             </div>
             <div class="col">
                 
-                <div class="row mb-4"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateArrVoyPrec" ></input></div>  
+                <div class="row mb-4"><input type="Date" class="me-2 form-control bg-light text-warning text-center" id="tournee" name="dateArrVoyPrec" disabled value=<?php echo $dateArrVoyPrec ?>></input></div>  
                 <hr>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateSortieBingo" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateArrSurSite" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateLivraison" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateSortieSite" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateRetour" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateInspection" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateCorrInspect" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="dateAnnalySuiv" ></input></div>
-                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary text-center" id="tournee" name="commentaires" ></input></div>
-                <div class="mt-4 row"><button class="col btn btn-warning" type="submit" value="" name="miseajourVoyage">Mise à Jour Voyage</button></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateSortieBingo" value=<?php echo $row["dateSortieBingo"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateArrSurSite" value=<?php echo $row["dateArrSurSite"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateLivraison" value=<?php echo $row["dateLivraison"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateSortieSite" value=<?php echo $row["dateSortieDuSite"] ?> ></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateRetour" value=<?php echo $row["dateRetourDuSite"] ?> ></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateInspection" value=<?php echo $row["dateInspection"] ?> ></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateCorrInspect" value=<?php echo $row["dateCorrectionInspect"] ?>></input></div>
+                <div class="row mb-1"><input type="Date" class="me-2 form-control bg-light text-primary" id="tournee" name="dateAnnalySuiv" value=<?php echo $row["dateAnalyseOBCSuiv"] ?>></input></div>               
+                <div class="row mb-1"> <input type="text" class="me-2 form-control bg-light text-primary" id="tournee" name="" value=""></input></div>
+               
+                
 
             </div>
 
 
+            </div>
+            <div class="ms-2 row"><label type="text" class="form-control bg-light fw-bold" id="">Commentaires sur le voyage</label></div>
+            <div class="ms-2 row"><textarea type="text" class="me-2 form-control bg-light text-dark" id="" name="commentaires"><?php echo $row["Commentaires"] ?></textarea></div>
+            <div class="ms-2 mt-1 mb-1 row">  
+                <button class="col btn btn-warning me-2" type="submit" value="" name="miseajourVoyage">Mise à Jour Voyage</button>
+                <a class="col btn btn-info" href="cyclogramme.php?refVoy=<?php echo $ref ?>" value="" name="visionnerCyclo">Voir le Cyclogramme</a>
             </div>
         </div>
  
@@ -313,9 +351,9 @@ if(isset($_GET['refVoy'])){
   <div class="col"></div>
   <div class="col"></div>
   <div class="col">
-    <a class="btn btn-secondary btn-lg" href="page_acceuil_voyages.php"><svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+    <a class="btn btn-secondary btn-lg" href="page_voyages.php"><svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
   <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-</svg>Performances Voyages 
+</svg>Operations Voyages 
     </a>
     
   </div>

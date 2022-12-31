@@ -7,17 +7,19 @@
 <div class="mt-1 w-75 mx-auto"><button type="button" class="btn btn-secondary w-100 fw-bold fs-5">CRITERES SELECTION VOYAGES</button></div>
     <form action="" method="post">
         <div class="ms-5 row mt-2">
-        
+        <!--
                 <div class="col mb-1"> 
                 <select class="form-select text-primary" aria-label="Default select example" name="chauffeur">
                         <option selected>Choisir Chauffeur</option>
                         <?php     
-                            genererChauffeursCreationVoyage();                    
+                           // genererChauffeursCreationVoyage();                    
                         ?>;                         
                     </select>         
                
                 </div>
-                <div class="col mb-1">          
+-->   
+                <div class="col mb-1"></div>     
+                <div class="ms-5 col mb-1">          
                 
                     <select class="form-select text-primary" aria-label="Default select example" name="camion" >
                         <option selected>Choisir Camions</option>
@@ -39,7 +41,7 @@
     <?php 
         if(isset($_POST["rechercher"])){
             $camion = $_POST["camion"];
-            $chauffeur = $_POST["chauffeur"];
+           // $chauffeur = $_POST["chauffeur"];
         }
     ?>
 
@@ -60,8 +62,9 @@
         <th scope="col">Ord Charg.</th>
         <th scope="col">Plan Voy.</th>
         <th scope="col">Bord. Livr.</th>
-        <th scope="col">Volume Livré</th>
-        <th scope="col">Edition</th>
+        <th scope="col">Volume Livré</th>       
+        <th scope="col">Statut</th>
+        <th scope="col" class="text-primary">Edition</th>
 
         </tr>
     </thead>
@@ -70,7 +73,7 @@
     
         <?php 
         if(isset($_POST["rechercher"])){       
-            genererlisteVoyages($camion,$chauffeur);
+            genererlisteVoyages($camion);
         }else{
             genererlistetouslesVoyages();
         }
@@ -85,7 +88,7 @@
         <div class="col">
             <a class="btn btn-secondary btn-lg" href="page_voyages.php"><svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                     <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-                    </svg>Page Voyages 
+                    </svg>Operations Voyages 
             </a>
         </div>
     </div>

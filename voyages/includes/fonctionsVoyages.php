@@ -156,7 +156,7 @@
             }
 
 //////////////////////////////////////////////////////////////////////////////
-            function genererlisteVoyages($camion, $chauffeur){
+            function genererlisteVoyages($camion){
 
               $server="localhost";
               $username="root";
@@ -171,7 +171,7 @@
                 exit();
               }
               
-              $sql = "SELECT * FROM voyages WHERE ref_Camion_Voyage='$camion' AND ref_Chauffeur_Voyage='$chauffeur' ORDER BY ref_Voyage";
+              $sql = "SELECT * FROM voyages WHERE ref_Camion_Voyage='$camion' ORDER BY ref_Voyage";
               $result = $conn->query($sql);
               
               if ($result->num_rows > 0) {
@@ -192,7 +192,8 @@
                       <td scope="row">';echo $row["ordre_de_Chargement_Marketer"];echo'</td>
                       <td scope="row">';echo $row["plan_de_Voyage"];echo'</td>
                       <td scope="row">';echo $row["bL_Livraison_Client"];echo'</td>
-                      <td scope="row">';echo $row["volume_livre"];echo'</td>
+                      <td scope="row">';echo $row["volume_livre"];echo'</td> 
+                      <td scope="row"';if($row["statutVoyage"]==1){echo'class="bg-danger">';}else{echo'class="bg-success">';};echo designationStatutVoyage($row["statutVoyage"]);echo'</td>
                       <td scope="col"><a class="text-decoration-none" href="editVoyages.php?refVoy=';echo $row["ref_Voyage"];echo'"><div class="text-danger fs-5 text-center">&#9998</div></a></td>
                   </tr>
                     '
@@ -248,8 +249,9 @@
                       <td scope="row">';echo $row["ordre_de_Chargement_Marketer"];echo'</td>
                       <td scope="row">';echo $row["plan_de_Voyage"];echo'</td>
                       <td scope="row">';echo $row["bL_Livraison_Client"];echo'</td>
-                      <td scope="row">';echo $row["volume_livre"];echo'</td>
-                      <td scope="col"><a class="text-decoration-none" href="#"><div class="text-danger fs-5 text-center">&#9998</div></a></td>
+                      <td scope="row">';echo $row["volume_livre"];echo'</td>              
+                      <td scope="row"';if($row["statutVoyage"]==1){echo'class="bg-danger">';}else{echo'class="bg-success">';};echo designationStatutVoyage($row["statutVoyage"]);echo'</td>
+                      <td scope="col"><a class="text-decoration-none" href="editVoyages.php?refVoy=';echo $row["ref_Voyage"];echo'"><div class="text-danger fs-5 text-center">&#9998</div></a></td>
                   </tr>
                     '
 
@@ -283,13 +285,13 @@
                   exit();
                 }
                 
-                $sql = "SELECT Designation_Depot_Chargement FROM depotsChargements WHERE Ref_Depot_Chargement='$ref'";
+                $sql = "SELECT Ref_Depot_Chargement, Designation_Depot_Chargement FROM depotschargements WHERE Ref_Depot_Chargement='$ref'";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
                   // output data of each row
                   while($row = $result->fetch_assoc()) {
-                    echo $row["Designation_Depot_Chargement"];                                     
+                   echo'<option selected value="';echo $row["Ref_Depot_Chargement"];echo'">';echo $row["Designation_Depot_Chargement"];echo'</option>';                                   
                   }
                 } else {
                   echo "0 results";
@@ -314,13 +316,13 @@
                   exit();
                 }
                 
-                $sql = "SELECT Designation_Depot_Livraison FROM depotslivraisons WHERE Ref_Depot_Livraison='$ref'";
+                $sql = "SELECT Ref_Depot_Livraison, Designation_Depot_Livraison FROM depotslivraisons WHERE Ref_Depot_Livraison='$ref'";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
                   // output data of each row
                   while($row = $result->fetch_assoc()) {
-                    echo $row["Designation_Depot_Livraison"];                                     
+                    echo'<option selected value="';echo $row["Ref_Depot_Livraison"];echo'">';echo $row["Designation_Depot_Livraison"];echo'</option>';                                                                     
                   }
                 } else {
                   echo "0 results";
@@ -346,13 +348,13 @@
                   exit();
                 }
                 
-                $sql = "SELECT Designation_Transitaire FROM transitaires WHERE Ref_Transitaire='$ref'";
+                $sql = "SELECT Ref_Transitaire, Designation_Transitaire FROM transitaires WHERE Ref_Transitaire='$ref'";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
                   // output data of each row
                   while($row = $result->fetch_assoc()) {
-                    echo $row["Designation_Transitaire"];                                     
+                    echo'<option selected value="';echo $row["Ref_Transitaire"];echo'">';echo $row["Designation_Transitaire"];echo'</option>'; 
                   }
                 } else {
                   echo "0 results";
@@ -377,13 +379,13 @@
                   exit();
                 }
                 
-                $sql = "SELECT nom_Chauffeur, prenom_Chauffeur FROM chauffeurs WHERE Ref_Chauffeur='$ref'";
+                $sql = "SELECT ref_Chauffeur, nom_Chauffeur, prenom_Chauffeur FROM chauffeurs WHERE Ref_Chauffeur='$ref'";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
                   // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                    echo $row["nom_Chauffeur"]." ".$row["prenom_Chauffeur"];                                     
+                  while($row = $result->fetch_assoc()) {                    
+                    echo'<option selected value="';echo $row["ref_Chauffeur"];echo'">';echo $row["nom_Chauffeur"]." ".$row["prenom_Chauffeur"];echo'</option>';                                     
                   }
                 } else {
                   echo "0 results";
@@ -409,13 +411,14 @@
                   exit();
                 }
                 
-                $sql = "SELECT immatriculation_Tracteur, immatriculation_Semi_Remorque FROM camions WHERE Ref_Camion='$ref'";
+                $sql = "SELECT ref_Camion, immatriculation_Tracteur, immatriculation_Semi_Remorque FROM camions WHERE Ref_Camion='$ref'";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
                   // output data of each row
                   while($row = $result->fetch_assoc()) {
-                    echo $row["immatriculation_Tracteur"]." / ".$row["immatriculation_Semi_Remorque"];                                     
+                    echo'<option selected value="';echo $row["ref_Camion"];echo'">';echo $row["immatriculation_Tracteur"]." / ".$row["immatriculation_Semi_Remorque"];echo'</option>';                                     
+                                                       
                   }
                 } else {
                   echo "0 results";
@@ -479,7 +482,7 @@
               if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                  echo $row["designationStatutVoyage"];                                     
+                  echo'<option selected value="';echo $row["refStatutVoyage"];echo'">';echo $row["designationStatutVoyage"];echo'</option>';                                    
                 }
               } else {
                 echo "0 results";
@@ -527,6 +530,242 @@
               $conn->close();
               
               }
+
+
+              //////////////////////////////////////////////////////////////////////////////
+            function rechercherlePrecedentVoyage($ref){
+
+              $server="localhost";
+              $username="root";
+              $password="";
+              $db="db_transport";
+              
+              $conn = new mysqli($server,$username,$password,$db);
+              $chauf='';
+              $cam='';
+              
+              // Check connection
+              if ($conn -> connect_errno) {
+                echo "Failed to connect to MySQL: " . $conn -> connect_error;
+                exit();
+              }
+              
+              $sql1 = "SELECT * FROM voyages WHERE ref_Voyage='$ref'";
+              $result1 = $conn->query($sql1);
+
+              if ($result1->num_rows > 0) {
+                // output data of each row
+                while($row = $result1->fetch_assoc()) {
+                $chauf = $row["ref_Chauffeur_Voyage"];
+                $cam = $row["ref_Camion_Voyage"];                    ;
+                }
+              
+
+                $sql = "SELECT * FROM voyages WHERE ref_Chauffeur_Voyage='$chauf' AND ref_Camion_Voyage='$cam' AND statutVoyage='2' ORDER BY ref_Voyage DESC LIMIT 1";
+                $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                // output data of each row
+                while($theLastJourney = $result->fetch_assoc()) {
+                return $theLastJourney ;
+                }
+              } 
+              $conn->close();
+              
+              }
+
+            }
+
+
+//////////////////////////////////////////////////////////////////////////////
+                        function rechercherlesDonneesduCamion($refCamion){
+
+                          $server="localhost";
+                          $username="root";
+                          $password="";
+                          $db="db_transport";
+                          
+                          $conn = new mysqli($server,$username,$password,$db);
+                                                  
+                          // Check connection
+                          if ($conn -> connect_errno) {
+                            echo "Failed to connect to MySQL: " . $conn -> connect_error;
+                            exit();
+                          }
+                          
+                          $sql = "SELECT * FROM camions WHERE ref_Camion ='$refCamion'";
+                          $result = $conn->query($sql);
+            
+                         
+                          if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($lesdonneesDuCamion = $result->fetch_assoc()) {
+                            return $lesdonneesDuCamion ;
+                            }
+                          } 
+                          $conn->close();
+                          
+                          }
+
+//////////////////////////////////////////////////////////////////////////////
+          function rechercherlesDonneesduDepotChargement($refDepotChargement){
+
+            $server="localhost";
+            $username="root";
+            $password="";
+            $db="db_transport";
+            
+            $conn = new mysqli($server,$username,$password,$db);
+                                    
+            // Check connection
+            if ($conn -> connect_errno) {
+              echo "Failed to connect to MySQL: " . $conn -> connect_error;
+              exit();
+            }
+            
+            $sql = "SELECT * FROM depotschargements WHERE Ref_Depot_Chargement='$refDepotChargement'";
+            $result = $conn->query($sql);
+
+            
+            if ($result->num_rows > 0) {
+              // output data of each row
+              while($lesdonneesDuDepotChargement = $result->fetch_assoc()) {
+              return $lesdonneesDuDepotChargement ;
+              }
+            } 
+            $conn->close();
+            
+            }
+
+      //////////////////////////////////////////////////////////////////////////////
+      function rechercherlesDonneesduTransitaire($refTransitaire){
+
+        $server="localhost";
+        $username="root";
+        $password="";
+        $db="db_transport";
+        
+        $conn = new mysqli($server,$username,$password,$db);
+                                
+        // Check connection
+        if ($conn -> connect_errno) {
+          echo "Failed to connect to MySQL: " . $conn -> connect_error;
+          exit();
+        }
+        
+        $sql = "SELECT * FROM transitaires WHERE Ref_Transitaire='$refTransitaire'";
+        $result = $conn->query($sql);
+
+        
+        if ($result->num_rows > 0) {
+          // output data of each row
+          while($lesdonneesDuTransitaire = $result->fetch_assoc()) {
+          return $lesdonneesDuTransitaire ;
+          }
+        } 
+        $conn->close();
+        
+        }
+
+          //////////////////////////////////////////////////////////////////////////////
+      function rechercherlesDonneesduSiteDeLivraison($refSiteLivraison){
+
+        $server="localhost";
+        $username="root";
+        $password="";
+        $db="db_transport";
+        
+        $conn = new mysqli($server,$username,$password,$db);
+                                
+        // Check connection
+        if ($conn -> connect_errno) {
+          echo "Failed to connect to MySQL: " . $conn -> connect_error;
+          exit();
+        }
+        
+        $sql = "SELECT * FROM depotslivraisons WHERE Ref_Depot_Livraison='$refSiteLivraison'";
+        $result = $conn->query($sql);
+
+        
+        if ($result->num_rows > 0) {
+          // output data of each row
+          while($lesdonneesDuSiteDeLivraison = $result->fetch_assoc()) {
+          return $lesdonneesDuSiteDeLivraison;
+          }
+        } 
+        $conn->close();
+        
+        }
+
+
+//////////////////////////////////////////////////////////////////////////////
+      function rechercherlesDonneesduMarketeur($refMarketeur){
+
+        $server="localhost";
+        $username="root";
+        $password="";
+        $db="db_transport";
+        
+        $conn = new mysqli($server,$username,$password,$db);
+                                
+        // Check connection
+        if ($conn -> connect_errno) {
+          echo "Failed to connect to MySQL: " . $conn -> connect_error;
+          exit();
+        }
+        
+        $sql = "SELECT * FROM marketers WHERE Ref_Marketer='$refMarketeur'";
+        $result = $conn->query($sql);
+
+        
+        if ($result->num_rows > 0) {
+          // output data of each row
+          while($lesdonneesDuMarketeur = $result->fetch_assoc()) {
+          return $lesdonneesDuMarketeur;
+          }
+        } 
+        $conn->close();
+        
+        }
+        
+
+
+ /////////////// FICHE SAFE TO LOAD  //////////////////////////////////////       
+
+///////////////////////////////////////////////////////////////////////
+function genererTransporteursSafeToLoad(){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+
+  $conn = new mysqli($server,$username,$password,$db);
+
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+
+  $sql = "SELECT Ref_Transporteur, Designation_Transporteur FROM transporteurs ORDER BY Designation_Transporteur";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo '<option value="';echo $row["Ref_Transporteur"];echo'">';echo $row["Designation_Transporteur"];echo'</option>';
+    }
+  } else {
+    echo "0 results";
+  }
+  $conn->close();
+
+  }
+  
+            
+            
+                        
+            
 
 
 
