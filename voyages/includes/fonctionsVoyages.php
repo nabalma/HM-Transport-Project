@@ -821,6 +821,38 @@ function designationTransporteursSafeToDispatch($refTransporteur){
       echo $row["Designation_Transporteur"];
     }
   } else {
+    echo "&nbsp";
+  }
+  $conn->close();
+
+  }
+
+
+  ///////////////////////////////////////////////////////////////////////
+function genererProduitsSafeToDispatch(){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+
+  $conn = new mysqli($server,$username,$password,$db);
+
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+
+  $sql = "SELECT ref_Produit, designation_Produit FROM produits ORDER BY designation_Produit";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo '<option value="';echo $row["ref_Produit"];echo'">';echo $row["designation_Produit"];echo'</option>';
+    }
+  } else {
     echo "0 results";
   }
   $conn->close();

@@ -7,7 +7,9 @@
 <?php
     $refRequest="";
     $requestDate="";
-    $refTransporteur="";
+    $refTransporteur="";  
+    $refCamion="";
+    $refProduit="";
 ?>
 
 <div class="mt-3 container">
@@ -52,8 +54,8 @@
             </div>
             
             <div class="col">
-                 <button type="submit" class="ms-1 btn btn-outline-primary" name="addchoixTransporteur">Generer</button>
-                 <button type="submit" class="btn btn-outline-warning" name="updatechoixTransporteur">Modifier</button>      
+                 <button type="submit" class="ms-1 btn btn-outline-dark" name="afficherchoixTransporteur">Afficher</button>
+                     
             </div>
             <div class="col"></div>
         </div>
@@ -62,9 +64,9 @@
     </form>
     <hr class="w-75">
 
-    <!-- PREMIERE SOUMISSION, COLLECTE DES DONNEES-->
+    <!-- PREMIERE SOUMISSION, COLLECTE DES DONNEES, AFFICHER-->
     <?php 
-    if(isset($_POST["addchoixTransporteur"])){
+    if(isset($_POST["afficherchoixTransporteur"])){
         $refRequest=$_POST["refRequete"];
         $requestDate=$_POST["requestDate"];
         $refTransporteur=$_POST["transporteur"];
@@ -72,18 +74,19 @@
     
     ?>
  <!-- AFFICHAGE DES DONNEES COLLECTEES-->
+ <form action="ficheSafeToDispatch.php" method="post">
 <div class="row mb-1">
             <div class="col"><label for="exampleFormControlInput1" class="form-control text-start" style="width:60px;">Req</label></div>
-            <div class="col"><label for="exampleFormControlInput1" class="form-control text-success"><?php echo $refRequest;?></label></div>
+            <div class="col"><input for="exampleFormControlInput1" class="form-control text-success text-center" name="validatedRefRequest" value=<?php echo $refRequest;?>></input></div>
             <div class="col"></div> <!-- Séparateur -->
             <div class="col"><label for="exampleFormControlInput1" class="form-control text-start" style="width:60px;">Date</label></div>
-            <div class="col"><label for="exampleFormControlInput1" class="form-control text-success"><?php echo $requestDate;?></label></div>
+            <div class="col"><input for="exampleFormControlInput1" class="form-control text-success" style="width:120px;" name="validatedReqDate"  value=<?php echo $requestDate;?>></input></div>
             <div class="col"></div> <!-- Séparateur -->
             <div class="col"><label for="exampleFormControlInput1" class="form-control text-center" style="width:80px;">Transprt</label></div>
-            <div class="col"><label for="exampleFormControlInput1" class="form-control text-center text-success" style="width:50px;"><?php echo $refTransporteur;?></label></div> 
+            <div class="col"><input for="exampleFormControlInput1" class="form-control text-center text-success" style="width:50px;" name="validatedRefTransporteur" value=<?php echo $refTransporteur;?>></input></div> 
             <div class="col"><label for="exampleFormControlInput1" class="form-control" style="width:150px;"><?php designationTransporteursSafeToDispatch($refTransporteur)?></label></div>         
             <div class="col">
-            <button type="submit" class="btn btn-outline-dark" name="updatechoixTransporteur">Rappeler</button>        
+            <button type="submit" class="btn btn-outline-primary" name="valider">Valider</button>        
             </div>
             <div class="col"></div>
             <div class="col"></div>
@@ -91,35 +94,61 @@
 </div>
 
 </div>
+</form>
+ <!-- DEUXIEME SOUMISSION, COLLECTE DES DONNEES, ENREGISTRER-->
+ <?php 
+    if(isset($_POST["valider"])){
+        $validatedRefRequest=$_POST["validatedRefRequest"];
+        $validatedRequestDate=$_POST["validatedReqDate"];
+        $validatedRefTransporteur=$_POST["validatedRefTransporteur"];
+    }
+    
+    ?>
 
 <hr class="w-75">
-<div class="ms-1 mb-1 row mt-1 btn btn-light row w-75 mx-auto text-danger fs-5">INFORMATIONS CAMION</div>
+
+ <!-- DEUXIEME SOUMISSION, TOUT LE RESTE DU FORMULAIRE, POUR VERIFICATION--> 
+
+<div class="ms-1 mb-1 row mt-1 btn btn-light mx-auto row w-75 ">
+    <div class="col text-danger fs-5">INFORMATIONS CAMION   
+    <span class="ms-2 px-2 border border-secondary rounded-3 text-dark" style="width:140px;" name=""><?php if(isset($_POST["valider"])){designationTransporteursSafeToDispatch($validatedRefTransporteur);}else{echo'&nbsp';}?></span>
+    </div>
+</div> 
 
 <div class="ms-1 row mt-1">
+
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">1</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">IMMATRICULATION TRACTEUR & CITERNE</div>
+       
         <div class="col-3">
             
             <select class="form-select text-primary" aria-label="Default select example" name="camion">
             <option selected>Choisir le camion</option>           
                 <?php     
-                     genererCamionsSafeToDispatch($refTransporteur)               
+                     genererCamionsSafeToDispatch($validatedRefTransporteur)               
                 ?>;
 
             </select>
         </div>
-        <div class="col"><button type="button" class="btn btn-info">OK</button></div>
+        <div class="col"></div>
     </div>
+   
 
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">2</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">NATURE DU PRODUIT TRANSPORTE/DEPOTE</div>
         <div class="col-3">
             
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
+            <select class="form-select text-primary" aria-label="Default select example" name="camion">
+            <option selected>Choisir le produit</option>           
+                <?php     
+                     genererProduitsSafeToDispatch()           
+                ?>;
+
+            </select>        
         </div>
-        <div class="col"></div>
+        <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -253,7 +282,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">NOM ET PRENOM (S) DU CHAUFFEUR</div>
         <div class="col-3">
             
-            <select class="form-select text-primary" aria-label="Default select example" name="camion">
+            <select class="form-select text-primary" aria-label="Default select example" name="">
             <option selected>Choisir le chauffeur</option>           
                 <?php     
                      // A corriger --> du transporteur selectionné                   
@@ -423,7 +452,7 @@
     <div class="ms-1 row mb-1">
         <div class="col mx-auto"></div>
         <div class="col mx-auto"></div>
-        <div class="col mx-auto"><button type="button" class="btn btn-outline-danger w-100">Vérifier</button></div>
+        <div class="col mx-auto"><button type="submit" class="btn btn-outline-danger w-100">Vérifier</button></div>
         <div class="col mx-auto"><button type="button" class="btn btn-outline-success w-100">Soumettre</button></div>
         
     </div>
