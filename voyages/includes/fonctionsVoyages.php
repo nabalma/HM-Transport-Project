@@ -732,7 +732,7 @@
  /////////////// FICHE SAFE TO LOAD  //////////////////////////////////////       
 
 ///////////////////////////////////////////////////////////////////////
-function genererTransporteursSafeToLoad(){
+function genererTransporteursSafeToDispatch(){
 
   $server="localhost";
   $username="root";
@@ -761,7 +761,75 @@ function genererTransporteursSafeToLoad(){
   $conn->close();
 
   }
+
+
+  //////////////////////////////////////////////////////////////////////////////////////
+  function genererCamionsSafeToDispatch($refTransporteur){
+
+    $server="localhost";
+    $username="root";
+    $password="";
+    $db="db_transport";
+    
+    $conn = new mysqli($server,$username,$password,$db);
+    
+    // Check connection
+    if ($conn -> connect_errno) {
+      echo "Failed to connect to MySQL: " . $conn -> connect_error;
+      exit();
+    }
+    
+    $sql = "SELECT ref_Camion, immatriculation_Tracteur, immatriculation_Semi_Remorque FROM camions WHERE ref_Transporteur='$refTransporteur'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        echo'<option value="';echo $row["ref_Camion"];echo'">';echo $row["immatriculation_Tracteur"]." / ".$row["immatriculation_Semi_Remorque"];echo'</option>';                                     
+                                           
+      }
+    } else {
+      echo "0 results";
+    }
+    $conn->close();
+    
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////
+function designationTransporteursSafeToDispatch($refTransporteur){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+
+  $conn = new mysqli($server,$username,$password,$db);
+
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+
+  $sql = "SELECT Ref_Transporteur, Designation_Transporteur FROM transporteurs WHERE Ref_Transporteur='$refTransporteur'";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo $row["Designation_Transporteur"];
+    }
+  } else {
+    echo "0 results";
+  }
+  $conn->close();
+
+  }
+
   
+
+
             
             
                         

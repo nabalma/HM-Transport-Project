@@ -4,17 +4,26 @@
 
 
 <!-------------------------------------------------------------------->
+<?php
+    $refRequest="";
+    $requestDate="";
+    $refTransporteur="";
+?>
+
 <div class="mt-3 container">
 <div class="mt-2 fs-4 btn btn-dark row w-75 mx-auto">FICHE SAFE TO DISPATCH </div>
 
 <div class="ms-1 row mt-1">
 
+<form action="ficheSafeToDispatch.php" method="post">
+
 <div class="ms-1 row mb-1">
         <div class="col "></div>
-        <div class="col fs-6 text-end">REF.</div>
+        <div class="col fs-6 text-end">Reference</div>
         <div class="col">
-        <input type="text" disabled class="form-control bg-light text-danger fs-6" id="transporteur" name="refRequete" value="11225874698"></input>
+        <input type="text" class="form-control bg-light text-danger fs-6" id="transporteur" name="refRequete" value=<?php ?>></input>
         </div>
+       
         <div class="col"></div>
         <div class="col"></div>
 </div>
@@ -25,32 +34,65 @@
         <div class="col"> <input type="date" class="form-control bg-light text-primary" id="reqDate" name="requestDate" ></input></div>
         <div class="col"></div>
         <div class="col"></div>
-    </div>
-
-
-    <div class="ms-1 row mb-1">
-        <div class="col fs-6">NOM DU TRANSPORTEUR</div>
-        <div class="col"></div>
-        <div class="col">
-        <select class="form-select text-primary" aria-label="Default select example" name="transporteur">
-            <option selected>Choisir le transporteur</option>           
-                <?php     
-                    genererTransporteursSafeToLoad();               
-                ?>;
-
-            </select>
-    </div>
-        
-        <div class="col">
-        <button type="button" class="btn btn-outline-info">OK</button></div>
-        <div class="col"></div>
-    </div>
-
-
-    
 </div>
 
 
+
+<div class="ms-1 row mb-1">
+            <div class="col fs-6">NOM DU TRANSPORTEUR</div>
+            <div class="col"></div>
+            <div class="col">
+            <select class="form-select text-primary" aria-label="Default select example" name="transporteur">
+                <option selected>Choisir le transporteur</option>           
+                    <?php     
+                        genererTransporteursSafeToDispatch();               
+                    ?>;
+
+                </select>
+            </div>
+            
+            <div class="col">
+                 <button type="submit" class="ms-1 btn btn-outline-primary" name="addchoixTransporteur">Generer</button>
+                 <button type="submit" class="btn btn-outline-warning" name="updatechoixTransporteur">Modifier</button>      
+            </div>
+            <div class="col"></div>
+        </div>
+
+   
+    </form>
+    <hr class="w-75">
+
+    <!-- PREMIERE SOUMISSION, COLLECTE DES DONNEES-->
+    <?php 
+    if(isset($_POST["addchoixTransporteur"])){
+        $refRequest=$_POST["refRequete"];
+        $requestDate=$_POST["requestDate"];
+        $refTransporteur=$_POST["transporteur"];
+    }
+    
+    ?>
+ <!-- AFFICHAGE DES DONNEES COLLECTEES-->
+<div class="row mb-1">
+            <div class="col"><label for="exampleFormControlInput1" class="form-control text-start" style="width:60px;">Req</label></div>
+            <div class="col"><label for="exampleFormControlInput1" class="form-control text-success"><?php echo $refRequest;?></label></div>
+            <div class="col"></div> <!-- Séparateur -->
+            <div class="col"><label for="exampleFormControlInput1" class="form-control text-start" style="width:60px;">Date</label></div>
+            <div class="col"><label for="exampleFormControlInput1" class="form-control text-success"><?php echo $requestDate;?></label></div>
+            <div class="col"></div> <!-- Séparateur -->
+            <div class="col"><label for="exampleFormControlInput1" class="form-control text-center" style="width:80px;">Transprt</label></div>
+            <div class="col"><label for="exampleFormControlInput1" class="form-control text-center text-success" style="width:50px;"><?php echo $refTransporteur;?></label></div> 
+            <div class="col"><label for="exampleFormControlInput1" class="form-control" style="width:150px;"><?php designationTransporteursSafeToDispatch($refTransporteur)?></label></div>         
+            <div class="col">
+            <button type="submit" class="btn btn-outline-dark" name="updatechoixTransporteur">Rappeler</button>        
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+</div>
+
+</div>
+
+<hr class="w-75">
 <div class="ms-1 mb-1 row mt-1 btn btn-light row w-75 mx-auto text-danger fs-5">INFORMATIONS CAMION</div>
 
 <div class="ms-1 row mt-1">
@@ -62,7 +104,7 @@
             <select class="form-select text-primary" aria-label="Default select example" name="camion">
             <option selected>Choisir le camion</option>           
                 <?php     
-                     // A corriger --> du transporteur selectionné                   
+                     genererCamionsSafeToDispatch($refTransporteur)               
                 ?>;
 
             </select>
@@ -75,7 +117,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">NATURE DU PRODUIT TRANSPORTE/DEPOTE</div>
         <div class="col-3">
             
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -84,7 +126,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">3</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DU DERNIER VOYAGE</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -94,7 +136,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">SITE/LIEU DU DEPOTAGE</div>
         <div class="col-3">
             
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -103,7 +145,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">5</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DU DERNIER SAFE TO LOAD</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -112,7 +154,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">6</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE ASSURANCE CAMION</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -121,7 +163,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">7</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE ASSURANCE PRODUIT</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -130,7 +172,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">8</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE CCVA</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -139,7 +181,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">9</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE BUMIGEB</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -148,7 +190,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">10</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE CONTROLE TECHNIQUE</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -227,7 +269,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">NUMERO DU PERMIS DE CONDUIRE</div>
         <div class="col-3">
             
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -236,7 +278,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">16</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE FORMATION CHAUFFEUR</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -246,7 +288,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE DERNIERE VISITE MEDICALE</div>
         <div class="col-3">
             
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"><button type="button" class="btn btn-success">&nbsp</button></div>
     </div>
@@ -255,7 +297,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">18</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -264,7 +306,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">19</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DEBUT ET FIN DU DERNIER TRAJET (ALLER - RETOUR)</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -289,7 +331,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">21</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">TYPE DE VIOLATION ENREGISTREE</div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -298,7 +340,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">22</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DE LA VIOLATION</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -307,7 +349,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">23</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">NATURE DE LA SANCTION PRONONCEE</div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -316,7 +358,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">24</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">NOMBRE DE JOURS RESTANTS SANCTION</div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -325,7 +367,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">25</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">SOLDE DES POINTS SCP</div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -343,7 +385,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">26</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DERNIERE SENSIBILISATION CHAUFFEUR</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -353,7 +395,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">27</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">THEME(S) ABORDE(S) -   <span class="text-danger">   Joindre la liste d'émargement</span></div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -364,7 +406,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">28</label></div>
         <div class="col-5 fs-6 d-flex align-items-center"></div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -373,7 +415,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">29</label></div>
         <div class="col-5 fs-6 d-flex align-items-center"></div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="transporteur" ></input>          
+        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="" ></input>          
         </div>
         <div class="col"></div>
     </div>
