@@ -729,7 +729,38 @@
         
 
 
- /////////////// FICHE SAFE TO LOAD  //////////////////////////////////////       
+ /////////////// FICHE SAFE TO LOAD  //////////////////////////////////////  
+ 
+ 
+ ///////////////////////////////////////////////////////////////////////
+function genererRefSafeToDispatch(){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+
+  $conn = new mysqli($server,$username,$password,$db);
+
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+
+  $sql = "SELECT * FROM safetodispatchs";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+   echo $result->num_rows+1;
+  } else {
+    echo "0 results";
+  }
+  $conn->close();
+
+  }
+
 
 ///////////////////////////////////////////////////////////////////////
 function genererTransporteursSafeToDispatch(){
@@ -859,13 +890,101 @@ function genererProduitsSafeToDispatch(){
 
   }
 
-  
+
+   //////////////////////////////////////////////////////////////////
+   function genererListeCamionsSafeToDispatch(){
+
+    $server="localhost";
+    $username="root";
+    $password="";
+    $db="db_transport";
+    
+    $conn = new mysqli($server,$username,$password,$db);
+    
+    // Check connection
+    if ($conn -> connect_errno) {
+      echo "Failed to connect to MySQL: " . $conn -> connect_error;
+      exit();
+    }
+    
+    $sql = "SELECT Ref_Camion, immatriculation_tracteur, immatriculation_Semi_Remorque FROM camions ORDER BY immatriculation_tracteur";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        echo '<option value="';echo $row["Ref_Camion"];echo'">';echo $row["immatriculation_tracteur"]." / ".$row["immatriculation_Semi_Remorque"];echo'</option>';
+      }
+    } else {
+      echo "0 results";
+    }
+    $conn->close();
+    
+    }
 
 
-            
-            
-                        
-            
+
+     //////////////////////////////////////////////////////////////////
+   function genererListeSiteDeLivraisonsSafeToDispatch(){
+
+    $server="localhost";
+    $username="root";
+    $password="";
+    $db="db_transport";
+    
+    $conn = new mysqli($server,$username,$password,$db);
+    
+    // Check connection
+    if ($conn -> connect_errno) {
+      echo "Failed to connect to MySQL: " . $conn -> connect_error;
+      exit();
+    }
+    
+    $sql = "SELECT Ref_Depot_Livraison, Designation_Depot_Livraison FROM depotslivraisons ORDER BY Designation_Depot_Livraison";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        echo '<option value="';echo $row["Ref_Depot_Livraison"];echo'">';echo $row["Designation_Depot_Livraison"];echo'</option>';
+      }
+    } else {
+      echo "0 results";
+    }
+    $conn->close();
+    
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+    function genererChauffeursSafeToDispatch(){
+
+      $server="localhost";
+      $username="root";
+      $password="";
+      $db="db_transport";
+      
+      $conn = new mysqli($server,$username,$password,$db);
+      
+      // Check connection
+      if ($conn -> connect_errno) {
+        echo "Failed to connect to MySQL: " . $conn -> connect_error;
+        exit();
+      }
+      
+      $sql = "SELECT ref_Chauffeur, nom_Chauffeur, prenom_Chauffeur FROM chauffeurs ORDER BY nom_Chauffeur";
+      $result = $conn->query($sql);
+      
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          echo '<option value="';echo $row["ref_Chauffeur"];echo'">';echo $row["nom_Chauffeur"]." - ".$row["prenom_Chauffeur"];echo'</option>';
+        }
+      } else {
+        echo "0 results";
+      }
+      $conn->close();
+      
+      }
 
 
 
@@ -873,4 +992,5 @@ function genererProduitsSafeToDispatch(){
 
 
 
-?>
+
+      ?>
