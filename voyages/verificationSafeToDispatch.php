@@ -377,7 +377,7 @@
     </div>
 
     <div class="ms-3 row">
-        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">24</label></div>
         <div style="font-size:11px;" class="col-5 d-flex align-items-center">NOMBRE DE JOURS RESTANTS SANCTION</div>
        
         <div class="col-4">
@@ -388,7 +388,7 @@
     </div>
 
     <div class="ms-3 row">
-        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">25</label></div>
         <div style="font-size:11px;" class="col-5 d-flex align-items-center">SOLDE DES POINTS SCP</div>
        
         <div class="col-4">
@@ -402,7 +402,7 @@
 <div class="ms-1 row btn btn-light w-100 row text-danger fs-4 py-0">SENSIBILISATIONS OBLIGATOIRES <span class="text-dark fs-6">(Sur la base des alertes HSE diffusées)</span></div> 
 
     <div class="ms-3 row">
-        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">26</label></div>
         <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE DERNIERE SENSIBILISATION CHAUFFEUR</div>
        
         <div class="col-4">
@@ -413,7 +413,7 @@
     </div>
 
     <div class="ms-3 row">
-        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">27</label></div>
         <div style="font-size:11px;" class="col-5 d-flex align-items-center">THEME(S) ABORDE(S) -   <span class="text-danger">   Joindre la liste d'émargement</span></div>
        
         <div class="col-4">
@@ -432,6 +432,28 @@
         
     </div>
     </form>
+
+    <div class="mt-1 card ms-1 mx-auto row" style="width:400px;">
+        <div class="row fw-bold h-25 mx-auto">VISA TRANSPORTEUR</div>
+        <div class="row fw-bold h-25 mx-auto fs-6">Noms et Prenoms</div>
+        <div class="row mx-auto">
+            -------------------
+            -------------------
+            -------------------
+        </div>
+        <div class="row mx-auto">
+            -------------------
+            -------------------
+            -------------------
+        </div>
+        <div class="row mx-auto">
+            -------------------
+            -------------------
+            -------------------
+        </div>
+       
+        
+    </div>
 
 
 
