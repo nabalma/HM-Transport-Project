@@ -1,16 +1,10 @@
-<?php session_start(); ?> <?php include "includes/voyages_header.php"; ?>
+<?php session_start(); ?> 
+<?php include "includes/voyages_header.php"; ?>
 <?php include "includes/fonctionsVoyages.php"; ?>
 <?php include "includes/fonctionsVerificationsSafeToDispatch.php"; ?>
-
-
 <!-------------------------------------------------------------------->
 
-<div class="container">
-
 <?php 
-
- 
- 
 
     if(isset($_POST["verifierSTD"])){
 
@@ -57,17 +51,10 @@
     
     ?>
 
-
-
-
+<div class="container">
     <!-- VERIFICATION SAFE TO DISPATCH --->
-
     <form action="verificationSafeToDispatch.php" method="post">  
 <div class="ms-1 fs-4 btn btn-dark row w-100 py-0">FICHE SAFE TO DISPATCH </div>
-
-<div class="ms-1 row">
-
-
 
 <div class="ms-1 row">
         <div class="col-3" style="font-size:12px;">Reference</div>
@@ -180,47 +167,44 @@
         <div class="col"><?php estCeQueLeCritereEstConforme($refRequestDate,$dateEcheanceAssurProduit)?></div>
     </div>
 
-
     <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">7</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE ASSURANCE PRODUIT</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="" name="dateEcheanceAssurProduit" ><?php echo $dateEcheanceAssurProduit?></label>                                       
-        </div>
-        <div class="col"><?php estCeQueLeCritereEstConforme($refRequestDate,$dateEcheanceAssurProduit)?></div>
-    </div>
-
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">8</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE CCVA</div>
-        <div class="col-3">  
-        <label class="form-control bg-light text-primary text-center" id="" name="dateEcheanceCcva" ><?php echo $dateEcheanceCcva?></label>            
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">8</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE ECHEANCE CCVA</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="dateEcheanceCcva" name="dateEcheanceCcva"><?php echo $dateEcheanceCcva?></label>    
+        
         </div>
         <div class="col"><?php estCeQueLeCritereEstConforme($refRequestDate,$dateEcheanceCcva)?></div>
     </div>
 
     <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">9</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE BUMIGEB</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="" name="dateEcheanceAssurBumigeb" ><?php echo $dateEcheanceAssurBumigeb?></label>           
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">9</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE ECHEANCE BUMIGEB</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="dateEcheanceAssurBumigeb" name="dateEcheanceAssurBumigeb"><?php echo $dateEcheanceAssurBumigeb?></label>           
+        
         </div>
         <div class="col"><?php estCeQueLeCritereEstConforme($refRequestDate,$dateEcheanceAssurBumigeb)?></div>
     </div>
 
     <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">10</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE CONTROLE TECHNIQUE</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="" name="dateEcheanceAssurControlTech" ><?php echo $dateEcheanceAssurControlTech?></label>           
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">10</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE ECHEANCE CONTROLE TECHNIQUE</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="dateEcheanceAssurControlTech" name="dateEcheanceAssurControlTech"><?php echo $dateEcheanceAssurControlTech?></label>       
+        
         </div>
         <div class="col"><?php estCeQueLeCritereEstConforme($refRequestDate,$dateEcheanceAssurControlTech)?></div>
     </div>
 
+
     <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">11</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">EXTRACTION VIDEO REALISEE ?</div>
-        <div class="col-3">
+    <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">11</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">EXTRACTION VIDEO REALISEE ?</div>
+        <div class="col-3 d-flex">
                     <div class="form-check form-check-inline me-5">
                         <input class="form-check-input" type="radio" name="extractionVideo" id="extractionVideo1" value="1" <?php if($extractionVideo=="1"){echo 'checked';}?>>
                         <label class="form-check-label" for="inlineRadio1">Oui</label>
@@ -235,9 +219,9 @@
     </div>
 
     <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">12</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">L'OBC EST-IL EN BON ETAT ET FONCTIONNEL ?</div>
-        <div class="col-3">
+    <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">12</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">L'OBC EST-IL EN BON ETAT ET FONCTIONNEL ?</div>
+        <div class="col-3 d-flex">
                     <div class="form-check form-check-inline me-5">
                         <input class="form-check-input" type="radio" name="etatObc" id="etatObc1" value="1" <?php if($etatObc=="1"){echo 'checked';}?>>
                         <label class="form-check-label" for="inlineRadio1">Oui</label>
@@ -246,16 +230,15 @@
                         <input class="form-check-input" type="radio" name="etatObc" id="etatObc0" value="0" <?php if($etatObc=="0"){echo 'checked';}?>>
                         <label class="form-check-label" for="inlineRadio2">Non</label>
                     </div>
-        </div>             
+        </div>
         <div class="col"><?php estCeQueCameraOuOBCEstConforme($etatObc)?></div>
        
-        
     </div>
 
     <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">13</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">LA CAMERA EST-ELLE EN BON ETAT ET FONCTIONNELLE ?</div>
-        <div class="col-3">
+    <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">13</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">LA CAMERA EST-ELLE EN BON ETAT ET FONCTIONNELLE ?</div>
+        <div class="col-3 d-flex">
                     <div class="form-check form-check-inline me-5">
                         <input class="form-check-input" type="radio" name="etatCamera" id="etatCamera1" value="1" <?php if($etatCamera=="1"){echo 'checked';}?>>
                         <label class="form-check-label" for="inlineRadio1">Oui</label>
@@ -266,75 +249,85 @@
                     </div>
         </div>
         <div class="col"><?php estCeQueCameraOuOBCEstConforme($etatCamera)?></div>
+       
     </div>
+
    
 </div>
 
-<div class="ms-1btn btn-light row w-75 mx-auto text-danger fs-5">INFORMATIONS CHAUFFEUR</div>
+<div class="ms-1 row btn btn-light w-100 row text-danger fs-4 py-0">INFORMATIONS CHAUFFEUR </div> 
 
-<div class="ms-1 row">
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">14</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">NOM ET PRENOM (S) DU CHAUFFEUR</div>
-        <div class="col-3">
-          
-        <label class="form-control bg-light text-primary text-center" id="refChauffeur" name="refChauffeur"><?php  designationChauffeurSafeToDispatch($refChauffeur)?></label>             
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">14</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">NOM ET PRENOM (S) DU CHAUFFEUR</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="refChauffeur" name="refChauffeur"><?php  designationChauffeurSafeToDispatch($refChauffeur)?></label>             
+        
         </div>
         <div class="col"><?php  estCeQueLeChauffeurAppartientAuTransporteur($refTransporteur,$refChauffeur)?></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">15</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">NUMERO DU PERMIS DE CONDUIRE</div>
-        <div class="col-3">
-
-        <label class="form-control bg-light text-primary text-center" id="numPermis" name="numPermis"><?php echo $numPermis?></label>                       
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">15</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">NUMERO DU PERMIS DE CONDUIRE</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="numPermis" name="numPermis"><?php echo $numPermis?></label> 
+        
         </div>
         <div class="col"></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">16</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE FORMATION CHAUFFEUR</div>
-        <div class="col-3">
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">16</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE ECHEANCE FORMATION CHAUFFEUR</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="echeanceFormationChauffeur" name="echeanceFormationChauffeur"><?php echo $dateFormationChauffeur?></label>          
         
-        <label class="form-control bg-light text-primary text-center" id="echeanceFormationChauffeur" name="echeanceFormationChauffeur"><?php echo $dateFormationChauffeur?></label>                                 
         </div>
         <div class="col"><?php estCeQueLeCritereEstConforme($refRequestDate,$dateFormationChauffeur)?></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">17</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE DERNIERE VISITE MEDICALE</div>
-        <div class="col-3">
-            
-        <label class="form-control bg-light text-primary text-center" id="echeanceVisiteMedicale" name="echeanceVisiteMedicale"><?php echo $echeanceVisiteMedicale?></label>                                           
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">17</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE ECHEANCE DERNIERE VISITE MEDICALE</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="echeanceVisiteMedicale" name="echeanceVisiteMedicale"><?php echo $echeanceVisiteMedicale?></label>      
+        
         </div>
         <div class="col"><?php estCeQueLeCritereEstConforme($refRequestDate,$echeanceVisiteMedicale)?></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">18</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
-        <div class="col-3">       
-        <label class="form-control bg-light text-primary text-center" id="dernierTrajet" name="dernierTrajet"><?php echo $dernierTrajet?></label>                                                     
+
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">18</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet"><?php echo $dernierTrajet?></label>   
+        
         </div>
         <div class="col"></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">19</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE DEBUT ET FIN DU DERNIER TRAJET (ALLER - RETOUR)</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="datedernierTrajet" name="datedernierTrajet"><?php echo $datedernierTrajet?></label>                                                     
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">19</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE DEBUT ET FIN DERNIER TRAJET (ALLER - RETOUR)</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet"><?php echo $datedernierTrajet?></label>      
+        
         </div>
         <div class="col"></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">20</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">LE CHAUFFEUR A-T-IL COMMIS UNE VIOLATION ? ?</div>
-        <div class="col-3">
+    <div class="ms-3 row">
+    <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">20</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">LE CHAUFFEUR A-T-IL COMMIS UNE VIOLATION ? ?</div>
+        <div class="col-3 d-flex">
                     <div class="form-check form-check-inline me-5">
                         <input class="form-check-input" type="radio" name="commitViolation" id="commitViolation1" value="1" <?php if($commitViolation=="1"){echo 'checked';}?>>
                         <label class="form-check-label" for="inlineRadio1">Oui</label>
@@ -345,99 +338,91 @@
                     </div>
         </div>
         <div class="col"></div>
+       
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">21</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">TYPE DE VIOLATION ENREGISTREE</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="dernierTrajet" name="typeViolation"><?php echo $typeViolation?></label>                                                              
+
+
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">21</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">TYPE DE VIOLATION ENREGISTREE</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="typeViolation" name="typeViolation"><?php echo $typeViolation?></label>          
+        
         </div>
         <div class="col"></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">22</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE DE LA VIOLATION</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="dateViolation" name="dateViolation"><?php echo $dateViolation ?></label>                                                              
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">22</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE DE LA VIOLATION</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;" class="form-control bg-light text-primary" id="dateViolation" name="dateViolation"><?php echo $dateViolation ?></label>                                                              
+        
         </div>
         <div class="col"></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">23</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">NATURE DE LA SANCTION PRONONCEE</div>
-        <div class="col-3">        
-        <label class="form-control bg-light text-primary text-center" id="natureSanction" name="natureSanction"><?php echo $natureSanction ?></label>                                                                        
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">NATURE DE LA SANCTION PRONONCEE</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="natureSanction" name="natureSanction"><?php echo $natureSanction ?></label>               
+        
         </div>
         <div class="col"></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">24</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">NOMBRE DE JOURS RESTANTS SANCTION</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="nbreJoursRestantSanction" name="nbreJoursRestantSanction"><?php echo $nbreJoursRestantSanction ?></label>                                                                        
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">NOMBRE DE JOURS RESTANTS SANCTION</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="nbreJoursRestantSanction" name="nbreJoursRestantSanction"><?php echo $nbreJoursRestantSanction ?></label>                                                                                
+        
         </div>
         <div class="col"></div>
     </div>
 
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">25</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">SOLDE DES POINTS SCP</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="soldePointsScp" name="soldePointsScp"><?php echo $soldePointsScp ?></label>                                                                        
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">SOLDE DES POINTS SCP</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="soldePointsScp" name="soldePointsScp"><?php echo $soldePointsScp ?></label>         
+        
         </div>
         <div class="col"></div>
     </div>
 
-    
-   
-</div>
 
-<div class="ms-1 row btn btn-light row w-75 mx-auto text-danger fs-5">SENSIBILISATIONS OBLIGATOIRES <span class="text-dark fs-6">(Sur la base des alertes HSE diffusées)</span></div>
+<div class="ms-1 row btn btn-light w-100 row text-danger fs-4 py-0">SENSIBILISATIONS OBLIGATOIRES <span class="text-dark fs-6">(Sur la base des alertes HSE diffusées)</span></div> 
 
-<div class="ms-1 row">
-    
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">26</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">DATE DERNIERE SENSIBILISATION CHAUFFEUR</div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="dateDerniereSensibilisation" name="dateDerniereSensibilisation"><?php echo $dateDerniereSensibilisation ?></label>                                                                                  
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE DERNIERE SENSIBILISATION CHAUFFEUR</div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dateDerniereSensibilisation" name="dateDerniereSensibilisation"><?php echo $dateDerniereSensibilisation ?></label>          
+        
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="ms-3 row">
+        <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
+        <div style="font-size:11px;" class="col-5 d-flex align-items-center">THEME(S) ABORDE(S) -   <span class="text-danger">   Joindre la liste d'émargement</span></div>
+       
+        <div class="col-4">
+        <label style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="themesAbordes" name="themesAbordes"><?php echo $themesAbordes ?></label>          
+        
         </div>
         <div class="col"></div>
     </div>
   
-
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">27</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">THEME(S) ABORDE(S) -   <span class="text-danger">   Joindre la liste d'émargement</span></div>
-        <div class="col-3">
-        <label class="form-control bg-light text-primary text-center" id="themesAbordes" name="themesAbordes"><?php echo $themesAbordes ?></label>                 
-        </div>
-        <div class="col"></div>
-    </div>
-
-  
-
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">28</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center"></div>
-        <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="" name="" ></input>          
-        </div>
-        <div class="col"></div>
-    </div>
-
-    <div class="ms-1 row">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">29</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center"></div>
-        <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="" name="" ></input>          
-        </div>
-        <div class="col"></div>
-    </div>
 
     <div class="ms-1 row">
         <div class="col mx-auto"></div>
