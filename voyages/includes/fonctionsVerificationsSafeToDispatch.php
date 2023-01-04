@@ -260,7 +260,7 @@ function estCeQueLeCamionAppartientAuTransporteur($refTransporteur,$refCamion){
       if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-         echo $row["nom_Chauffeur"]." ".$row["prenom_Chauffeur"];                                   
+         echo $row["nom_Chauffeur"]." - ".$row["prenom_Chauffeur"];                                   
         }
       } else {
         echo "0 results";
@@ -322,27 +322,11 @@ function ajouterUnSafeToDispatch($refRequestDate,$refTransporteur,$refCamion,$re
     exit();
   }
   
+  $themesAbordes=$conn->real_escape_string($themesAbordes);
+  $typeViolation=$conn->real_escape_string($typeViolation);
+  $natureSanction=$conn->real_escape_string($natureSanction);
+
   $sql = "INSERT INTO safetodispatchs (date_Etablissement, ref_Transporteur, refCamion, refProduit, dateDernierVoyage, refLieuLivraison, dateDernierSafeLoad, dateEcheanceAssurCamion, dateEcheanceAssurProduit, dateEcheanceCcva, dateEcheanceAssurBumigeb, dateEcheanceAssurControlTech, extractionVideo, etatObc, etatCamera, refChauffeur, numPermis, dateFormationChauffeur, echeanceVisiteMedicale, dernierTrajet, datedernierTrajet, commitViolation, typeViolation, dateViolation, natureSanction, nbreJoursRestantSanction, soldePointsScp, dateDerniereSensibilisation, themesAbordes) VALUES ('$refRequestDate', '$refTransporteur', '$refCamion', '$refProduit', '$dateDernierVoyage', '$refLieuLivraison', '$dateDernierSafeLoad', '$dateEcheanceAssurCamion', '$dateEcheanceAssurProduit', '$dateEcheanceCcva', '$dateEcheanceAssurBumigeb', '$dateEcheanceAssurControlTech', '$extractionVideo', '$etatObc', '$etatCamera', '$refChauffeur', '$numPermis', '$dateFormationChauffeur', '$echeanceVisiteMedicale', '$dernierTrajet', '$datedernierTrajet', '$commitViolation', '$typeViolation', '$dateViolation', '$natureSanction', '$nbreJoursRestantSanction', '$soldePointsScp', '$dateDerniereSensibilisation', '$themesAbordes')";
-           
-           
-           
-  
-           
-           
-           
-           
-          
-          
-  
-  
-          
-           
-          
-  
-         
-         
-
-
 
 if ($conn->query($sql) === TRUE) {
 

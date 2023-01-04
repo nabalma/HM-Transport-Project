@@ -729,7 +729,7 @@
         
 
 
- /////////////// FICHE SAFE TO LOAD  //////////////////////////////////////  
+ /////////////// FICHE SAFE TO DISPATCH  //////////////////////////////////////  
  
  
  ///////////////////////////////////////////////////////////////////////
@@ -748,12 +748,13 @@ function genererRefSafeToDispatch(){
     exit();
   }
 
-  $sql = "SELECT * FROM safetodispatchs";
+  $sql = "SELECT MAX(ref_SafeToDispatch) AS maximumRef FROM safetodispatchs";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
     // output data of each row
-   echo $result->num_rows+1;
+    $row=$result->fetch_assoc();
+    echo $row["maximumRef"]+1;
   } else {
     echo "0 results";
   }

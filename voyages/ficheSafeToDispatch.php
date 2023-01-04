@@ -17,7 +17,7 @@
         <div class="col "></div>
         <div class="col fs-6 text-end">Reference</div>
         <div class="col">
-        <input type="text" class="form-control bg-light text-danger fs-6" id="refRequete" name="refRequete" value=<?php genererRefSafeToDispatch()?> disabled></input>
+        <input type="text" class="form-control bg-light text-danger fs-6" id="refRequete" name="refRequete" value=<?php genererRefSafeToDispatch()?>></input>
         </div>
        
         <div class="col"></div>
