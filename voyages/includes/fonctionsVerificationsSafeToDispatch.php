@@ -307,7 +307,7 @@ function estCeQueLeChauffeurAppartientAuTransporteur($refTransporteur,$refChauff
 
 
   //////////////////////////////////////////////////////////////////////////////////////
-function ajouterUnSafeToDispatch(){
+function ajouterUnSafeToDispatch($refRequestDate,$refTransporteur,$refCamion,$refProduit,$dateDernierVoyage,$refLieuLivraison,$dateDernierSafeLoad,$dateEcheanceAssurCamion,$dateEcheanceAssurProduit,$dateEcheanceCcva,$dateEcheanceAssurBumigeb,$dateEcheanceAssurControlTech,$extractionVideo,$etatObc,$etatCamera,$refChauffeur,$numPermis,$dateFormationChauffeur,$echeanceVisiteMedicale,$dernierTrajet,$datedernierTrajet,$commitViolation,$typeViolation,$dateViolation,$natureSanction,$nbreJoursRestantSanction,$soldePointsScp,$dateDerniereSensibilisation,$themesAbordes){
 
   $server="localhost";
   $username="root";
@@ -322,7 +322,27 @@ function ajouterUnSafeToDispatch(){
     exit();
   }
   
-  $sql = "INSERT INTO safetodispatchs (date_Etablissement, ref_Transporteur, refCamion, refProduit, dateDernierVoyage, refLieuLivraison, dateDernierSafeLoad, dateEcheanceAssurCamion, dateEcheanceAssurProduit, dateEcheanceCcva, dateEcheanceAssurBumigeb, dateEcheanceAssurControlTech, extractionVideo, etatObc, etatCamera, refChauffeur, numPermis, dateFormationChauffeur, echeanceVisiteMedicale, dernierTrajet, datedernierTrajet, commitViolation, typeViolation, dateViolation, natureSanction, nbreJoursRestantSanction, soldePointsScp, dateDerniereSensibilisation, themesAbordes) VALUES ('', '', '', '', '', '', '', '', '', '', '', '')";
+  $sql = "INSERT INTO safetodispatchs (date_Etablissement, ref_Transporteur, refCamion, refProduit, dateDernierVoyage, refLieuLivraison, dateDernierSafeLoad, dateEcheanceAssurCamion, dateEcheanceAssurProduit, dateEcheanceCcva, dateEcheanceAssurBumigeb, dateEcheanceAssurControlTech, extractionVideo, etatObc, etatCamera, refChauffeur, numPermis, dateFormationChauffeur, echeanceVisiteMedicale, dernierTrajet, datedernierTrajet, commitViolation, typeViolation, dateViolation, natureSanction, nbreJoursRestantSanction, soldePointsScp, dateDerniereSensibilisation, themesAbordes) VALUES ('$refRequestDate', '$refTransporteur', '$refCamion', '$refProduit', '$dateDernierVoyage', '$refLieuLivraison', '$dateDernierSafeLoad', '$dateEcheanceAssurCamion', '$dateEcheanceAssurProduit', '$dateEcheanceCcva', '$dateEcheanceAssurBumigeb', '$dateEcheanceAssurControlTech', '$extractionVideo', '$etatObc', '$etatCamera', '$refChauffeur', '$numPermis', '$dateFormationChauffeur', '$echeanceVisiteMedicale', '$dernierTrajet', '$datedernierTrajet', '$commitViolation', '$typeViolation', '$dateViolation', '$natureSanction', '$nbreJoursRestantSanction', '$soldePointsScp', '$dateDerniereSensibilisation', '$themesAbordes')";
+           
+           
+           
+  
+           
+           
+           
+           
+          
+          
+  
+  
+          
+           
+          
+  
+         
+         
+
+
 
 if ($conn->query($sql) === TRUE) {
 
