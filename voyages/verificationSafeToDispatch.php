@@ -46,7 +46,7 @@
 
         $dateDerniereSensibilisation=$_POST["dateDerniereSensibilisation"];
         $themesAbordes=$_POST["themesAbordes"];
-        echo $themesAbordes;
+       
     };
     
 
