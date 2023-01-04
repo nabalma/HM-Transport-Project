@@ -27,7 +27,7 @@
 <div class="ms-1 row mb-1">
         <div class="col fs-6">DATE D'ETABLISSEMENT</div>
         <div class="col"></div>
-        <div class="col"> <input type="date" class="form-control bg-light text-primary" id="reqDate" name="requestDate"  ></input></div>
+        <div class="col"> <input required type="date" class="form-control bg-light text-primary" id="reqDate" name="requestDate"  ></input></div>
         <div class="col"></div>
         <div class="col"></div>
 </div>
@@ -38,7 +38,7 @@
             <div class="col fs-6">NOM DU TRANSPORTEUR</div>
             <div class="col"></div>
             <div class="col">
-            <select class="form-select text-primary" aria-label="Default select example" name="refTransporteur">
+            <select class="form-select text-primary" aria-label="Default select example" name="refTransporteur" required>
                 <option selected>Choisir le transporteur</option>           
                     <?php     
                         genererTransporteursSafeToDispatch();               
@@ -69,7 +69,7 @@
        
         <div class="col-3">
             
-            <select class="form-select text-primary text-center" aria-label="Default select example" name="refCamion">
+            <select class="form-select text-primary text-center" aria-label="Default select example" name="refCamion" required>
             <option selected>Choisir le camion</option>           
                 <?php     
                      genererListeCamionsSafeToDispatch()              
@@ -86,7 +86,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">NATURE DU PRODUIT TRANSPORTE/DEPOTE</div>
         <div class="col-3">
             
-            <select class="form-select text-primary text-center" aria-label="Default select example" name="refProduit">
+            <select class="form-select text-primary text-center" aria-label="Default select example" name="refProduit" required>
             <option selected>Choisir le produit</option>           
                 <?php     
                      genererProduitsSafeToDispatch()           
@@ -101,7 +101,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">3</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DU DERNIER VOYAGE</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateDernierVoyage" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateDernierVoyage" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -111,7 +111,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">SITE/LIEU DU DEPOTAGE</div>
         <div class="col-3">
             
-        <select class="form-select text-primary text-center" aria-label="Default select example" name="refLieuLivraison">
+        <select class="form-select text-primary text-center" aria-label="Default select example" name="refLieuLivraison" required>
             <option selected>Choisir le site de Livraison</option>           
                 <?php     
                      genererListeSiteDeLivraisonsSafeToDispatch()   
@@ -126,7 +126,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">5</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DU DERNIER SAFE TO LOAD</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateDernierSafeLoad" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateDernierSafeLoad" ></input>          
         </div>
        
     </div>
@@ -135,7 +135,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">6</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE ASSURANCE CAMION</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurCamion" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurCamion" ></input>          
         </div>
        
     </div>
@@ -144,7 +144,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">7</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE ASSURANCE PRODUIT</div>
         <div class="col-3">
-        <input  type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurProduit" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurProduit" ></input>          
         </div>
        
     </div>
@@ -153,7 +153,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">8</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE CCVA</div>
         <div class="col-3">
-        <input  type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceCcva" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceCcva" ></input>          
         </div>
        
     </div>
@@ -162,7 +162,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">9</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE BUMIGEB</div>
         <div class="col-3">
-        <input  type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurBumigeb" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurBumigeb" ></input>          
         </div>
        
     </div>
@@ -171,7 +171,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">10</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE CONTROLE TECHNIQUE</div>
         <div class="col-3">
-        <input  type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurControlTech" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurControlTech" ></input>          
         </div>
       
     </div>
@@ -234,7 +234,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">NOM ET PRENOM (S) DU CHAUFFEUR</div>
         <div class="col-3">
             
-            <select class="form-select text-primary" aria-label="Default select example" name="refChauffeur">
+            <select class="form-select text-primary" aria-label="Default select example" name="refChauffeur" required>
             <option selected>Choisir le chauffeur</option>           
                 <?php     
                      genererChauffeursSafeToDispatch();                
@@ -250,7 +250,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">NUMERO DU PERMIS DE CONDUIRE</div>
         <div class="col-3">
             
-        <input type="text" class="form-control bg-light text-primary text-center" id="permis" name="numPermis" ></input>          
+        <input required type="text" class="form-control bg-light text-primary text-center" id="permis" name="numPermis" ></input>          
         </div>
        
     </div>
@@ -259,7 +259,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">16</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE FORMATION CHAUFFEUR</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="" name="echeanceFormationChauffeur" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="" name="echeanceFormationChauffeur" ></input>          
         </div>
        
     </div>
@@ -269,7 +269,7 @@
         <div class="col-5 fs-6 d-flex align-items-center">DATE ECHEANCE DERNIERE VISITE MEDICALE</div>
         <div class="col-3">
             
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="echeanceVisiteMedicale" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="echeanceVisiteMedicale" ></input>          
         </div>
        
     </div>
@@ -278,7 +278,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">18</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="dernierTrajet" ></input>          
+        <input required type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="dernierTrajet" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -287,7 +287,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">19</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DEBUT ET FIN DU DERNIER TRAJET (ALLER - RETOUR)</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="datedernierTrajet" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="datedernierTrajet" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -301,7 +301,7 @@
                         <label class="form-check-label" for="inlineRadio1">Oui</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="commitViolation" id="commitViolation0" value="0">
+                        <input class="form-check-input" type="radio" name="commitViolation" id="commitViolation0" value="0" checked>
                         <label class="form-check-label" for="inlineRadio2">Non</label>
                     </div>
         </div>
@@ -366,7 +366,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">26</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DERNIERE SENSIBILISATION CHAUFFEUR</div>
         <div class="col-3">
-        <input type="date" class="form-control bg-light text-primary text-center" id="" name="dateDerniereSensibilisation" ></input>          
+        <input required type="date" class="form-control bg-light text-primary text-center" id="" name="dateDerniereSensibilisation" ></input>          
         </div>
         <div class="col"></div>
     </div>
@@ -376,7 +376,7 @@
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">27</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">THEME(S) ABORDE(S) -   <span class="text-danger">   Joindre la liste d'émargement</span></div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="" name="themesAbordes" ></input>          
+        <input required type="text" class="form-control bg-light text-primary text-center" id="" name="themesAbordes" ></input>          
         </div>
         <div class="col"></div>
     </div>

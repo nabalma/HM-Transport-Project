@@ -46,9 +46,137 @@
 
         $dateDerniereSensibilisation=$_POST["dateDerniereSensibilisation"];
         $themesAbordes=$_POST["themesAbordes"];
+
+        // Les Echos
+         genererRefSafeToDispatch(); echo "<br>";
+         echo $refRequestDate;echo "<br>";
+
+         echo $refTransporteur;echo "<br>";
+         echo $refCamion;echo "<br>";
+         echo $refProduit;echo "<br>";
+         echo $dateDernierVoyage;echo "<br>";
+         echo $refLieuLivraison;echo "<br>";
+         echo $dateDernierSafeLoad;echo "<br>";
+         echo $dateEcheanceAssurCamion;echo "<br>";
+         echo $dateEcheanceAssurProduit;echo "<br>";
+         echo $dateEcheanceCcva;echo "<br>";
+         echo $dateEcheanceAssurBumigeb;echo "<br>";
+         echo $dateEcheanceAssurControlTech;echo "<br>";
+ 
+         echo $extractionVideo;echo "<br>";
+         echo $extractionVideo;echo "<br>";
+         echo $etatObc;echo "<br>";
+         echo $etatCamera;echo "<br>";
+ 
+         echo $refChauffeur;echo "<br>";
+         echo $numPermis;echo "<br>";
+         echo $dateFormationChauffeur;echo "<br>";
+ 
+         echo $echeanceVisiteMedicale;echo "<br>";
+         echo $dernierTrajet;echo "<br>";
+         echo $datedernierTrajet;echo "<br>";
+         echo $commitViolation;echo "<br>";
+         echo $typeViolation;echo "<br>";
+         echo $dateViolation;echo "<br>";
+ 
+ 
+         echo $natureSanction;echo "<br>";
+         echo $nbreJoursRestantSanction;echo "<br>";
+         echo $soldePointsScp;echo "<br>";
+ 
+         echo $dateDerniereSensibilisation;echo "<br>";
+         echo $themesAbordes;echo "<br>";
         
     }
     
+
+    if(isset($_POST["soumettre"])){
+
+        // $refRequest=genererRefSafeToDispatch();
+         $refRequestDate=$_POST["requestDate"];
+ 
+         $refTransporteur=$_POST["refTransporteur"];
+         $refCamion=$_POST["refCamion"];
+         $refProduit=$_POST["refProduit"];
+         $dateDernierVoyage=$_POST["dateDernierVoyage"];
+         $refLieuLivraison=$_POST["refLieuLivraison"];
+         $dateDernierSafeLoad=$_POST["dateDernierSafeLoad"];
+         $dateEcheanceAssurCamion=$_POST["dateEcheanceAssurCamion"];
+         $dateEcheanceAssurProduit=$_POST["dateEcheanceAssurProduit"];
+         $dateEcheanceCcva=$_POST["dateEcheanceCcva"];
+         $dateEcheanceAssurBumigeb=$_POST["dateEcheanceAssurBumigeb"];
+         $dateEcheanceAssurControlTech=$_POST["dateEcheanceAssurControlTech"];
+ 
+         $extractionVideo=$_POST["extractionVideo"];
+         $extractionVideo=$_POST["extractionVideo"];
+         $etatObc=$_POST["etatObc"];
+         $etatCamera=$_POST["etatCamera"];
+ 
+         $refChauffeur=$_POST["refChauffeur"];
+         $numPermis=$_POST["numPermis"];
+         $dateFormationChauffeur=$_POST["echeanceFormationChauffeur"];
+ 
+         $echeanceVisiteMedicale=$_POST["echeanceVisiteMedicale"];
+         $dernierTrajet=$_POST["dernierTrajet"];
+         $datedernierTrajet=$_POST["datedernierTrajet"];
+         $commitViolation=$_POST["commitViolation"];
+         $typeViolation=$_POST["typeViolation"];
+         $dateViolation=$_POST["dateViolation"];
+ 
+ 
+         $natureSanction=$_POST["natureSanction"];
+         $nbreJoursRestantSanction=$_POST["nbreJoursRestantSanction"];
+         $soldePointsScp=$_POST["soldePointsScp"];
+ 
+         $dateDerniereSensibilisation=$_POST["dateDerniereSensibilisation"];
+         $themesAbordes=$_POST["themesAbordes"];
+ 
+         // Les Echos
+          genererRefSafeToDispatch(); echo "<br>";
+          echo $refRequestDate;echo "<br>";
+ 
+          echo $refTransporteur;echo "<br>";
+          echo $refCamion;echo "<br>";
+          echo $refProduit;echo "<br>";
+          echo $dateDernierVoyage;echo "<br>";
+          echo $refLieuLivraison;echo "<br>";
+          echo $dateDernierSafeLoad;echo "<br>";
+          echo $dateEcheanceAssurCamion;echo "<br>";
+          echo $dateEcheanceAssurProduit;echo "<br>";
+          echo $dateEcheanceCcva;echo "<br>";
+          echo $dateEcheanceAssurBumigeb;echo "<br>";
+          echo $dateEcheanceAssurControlTech;echo "<br>";
+  
+          echo $extractionVideo;echo "<br>";
+          echo $etatObc;echo "<br>";
+          echo $etatCamera;echo "<br>";
+  
+          echo $refChauffeur;echo "<br>";
+          echo $numPermis;echo "<br>";
+          echo $dateFormationChauffeur;echo "<br>";
+  
+          echo $echeanceVisiteMedicale;echo "<br>";
+          echo $dernierTrajet;echo "<br>";
+          echo $datedernierTrajet;echo "<br>";
+          echo $commitViolation;echo "<br>";
+          echo $typeViolation;echo "<br>";
+          echo $dateViolation;echo "<br>";
+  
+  
+          echo $natureSanction;echo "<br>";
+          echo $nbreJoursRestantSanction;echo "<br>";
+          echo $soldePointsScp;echo "<br>";
+  
+          echo $dateDerniereSensibilisation;echo "<br>";
+          echo $themesAbordes;echo "<br>";
+
+          ajouterUnSafeToDispatch();
+         
+     }
+     
+
+
+
     ?>
 
 <div class="container">
@@ -428,14 +556,14 @@
         <div class="col mx-auto"></div>
         <div class="col mx-auto"></div>
         <div class="col mx-auto"><a href="ficheSafeToDispatch.php" class="btn btn-outline-danger w-100">Reprendre la saisie</a></div>
-        <div class="col mx-auto"><button type="button" class="btn btn-outline-success w-100">Soumettre</button></div>
+        <div class="col mx-auto"><button type="submit" class="btn btn-outline-success w-100" name="soumettre">Soumettre</button></div>
         
     </div>
     </form>
 
     <div class="mt-1 card ms-1 mx-auto row" style="width:400px;">
         <div class="row fw-bold h-25 mx-auto">VISA TRANSPORTEUR</div>
-        <div class="row fw-bold h-25 mx-auto fs-6">Noms et Prenoms</div>
+        <div class="row h-25 mx-auto fs-6">Noms et Prenoms</div>
         <div class="row mx-auto">
             -------------------
             -------------------

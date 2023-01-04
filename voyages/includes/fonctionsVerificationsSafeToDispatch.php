@@ -306,6 +306,41 @@ function estCeQueLeChauffeurAppartientAuTransporteur($refTransporteur,$refChauff
   }
 
 
+  //////////////////////////////////////////////////////////////////////////////////////
+function ajouterUnSafeToDispatch(){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $sql = "INSERT INTO safetodispatchs (date_Etablissement, ref_Transporteur, refCamion, refProduit, dateDernierVoyage, refLieuLivraison, dateDernierSafeLoad, dateEcheanceAssurCamion, dateEcheanceAssurProduit, dateEcheanceCcva, dateEcheanceAssurBumigeb, dateEcheanceAssurControlTech, extractionVideo, etatObc, etatCamera, refChauffeur, numPermis, dateFormationChauffeur, echeanceVisiteMedicale, dernierTrajet, datedernierTrajet, commitViolation, typeViolation, dateViolation, natureSanction, nbreJoursRestantSanction, soldePointsScp, dateDerniereSensibilisation, themesAbordes) VALUES ('', '', '', '', '', '', '', '', '', '', '', '')";
+
+if ($conn->query($sql) === TRUE) {
+
+      echo'<div class="mt-3 row mx-auto w-75">
+      <div class="alert alert-success" role="alert">
+            Safe to Dispatch crée avec Succés !
+      </div>
+    </div>';
+
+
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+$conn->close();
+}
+  
+
 
 
 
