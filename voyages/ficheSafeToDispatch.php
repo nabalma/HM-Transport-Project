@@ -103,7 +103,7 @@
         <div class="col-3">
         <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateDernierVoyage" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px; border-top:1px solid black">Cela nous permettra de réclammer rapidement auprès des Opérateurs et</div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -119,7 +119,7 @@
 
             </select>              
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;">Dépôts MINES, les STL non disponibles sur ARIOFLOW au moment de la</div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -128,6 +128,7 @@
         <div class="col-3">
         <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateDernierSafeLoad" ></input>          
         </div>
+        <div class="col" style="font-size: 11px; border-bottom:1px solid black">demande de Bons</div>
        
     </div>
 
@@ -155,6 +156,7 @@
         <div class="col-3">
         <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceCcva" ></input>          
         </div>
+        <div class="col" style="font-size: 11px;">En cas de renouvellement, joindre au dossier, une copie de chaque document</div>
        
     </div>
 
@@ -164,6 +166,7 @@
         <div class="col-3">
         <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurBumigeb" ></input>          
         </div>
+        <div class="col" style="font-size: 11px;"></div>
        
     </div>
 
@@ -173,6 +176,7 @@
         <div class="col-3">
         <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateEcheanceAssurControlTech" ></input>          
         </div>
+        <div class="col"></div>
       
     </div>
 
@@ -189,6 +193,7 @@
                         <label class="form-check-label" for="inlineRadio2">Non</label>
                     </div>
         </div>
+        <div class="col" style="font-size: 11px; border-bottom:1px solid black;border-top:1px solid black">Si oui, joindre la fiche INNOTEC/GLOBO</div>
        
     </div>
 
@@ -204,7 +209,8 @@
                         <input class="form-check-input" type="radio" name="etatObc" id="etatObc0" value="0" checked>
                         <label class="form-check-label" for="inlineRadio2">Non</label>
                     </div>
-        </div>       
+        </div> 
+        <div class="col" style="font-size: 11px;">Si non, demander une intervention INNOTEC/GLOBO et joindre la fiche</div>      
         
     </div>
 
@@ -221,6 +227,7 @@
                         <label class="form-check-label" for="inlineRadio2">Non</label>
                     </div>
         </div>
+        <div class="col" style="font-size: 11px; border-bottom:1px solid black;">d'intervetion ; Si oui, passer à la question 14</div>
         
     </div>
    
@@ -271,6 +278,7 @@
             
         <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="echeanceVisiteMedicale" ></input>          
         </div>
+        <div class="col" style="font-size: 11px; border-bottom:1px solid black;border-top:1px solid black;">En cas de renouvellement, joindre une copie de la dernière visite</div>
        
     </div>
 
@@ -305,7 +313,7 @@
                         <label class="form-check-label" for="inlineRadio2">Non</label>
                     </div>
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;border-top:1px solid black;">Si oui, remplir cette partie et joindre la note de sanction proncée à l'encontre du chauffeur ;Si non, passer à la question 25</div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -314,7 +322,7 @@
         <div class="col-3">
         <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="typeViolation" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;"></div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -323,7 +331,7 @@
         <div class="col-3">
         <input type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="dateViolation" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;"></div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -341,7 +349,7 @@
         <div class="col-3">
         <input type="text" class="form-control bg-light text-primary text-center" id="" name="nbreJoursRestantSanction" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px; border-bottom:1px solid black;"></div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -368,7 +376,7 @@
         <div class="col-3">
         <input required type="date" class="form-control bg-light text-primary text-center" id="" name="dateDerniereSensibilisation" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;border-top:1px solid black;"></div>
     </div>
   
 
@@ -378,7 +386,7 @@
         <div class="col-3">
         <input required type="text" class="form-control bg-light text-primary text-center" id="" name="themesAbordes" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;">A compter de la diffusion de la présente liste, Total Burkina fera un rappel des ALERTES HSE pour toute fin utile.</div>
     </div>
 
   
@@ -389,7 +397,7 @@
         <div class="col-3">
         <input type="text" class="form-control bg-light text-primary text-center" id="" name="" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;"></div>
     </div>
 
     <div class="ms-1 row mb-1">
@@ -398,7 +406,7 @@
         <div class="col-3">
         <input type="text" class="form-control bg-light text-primary text-center" id="" name="" ></input>          
         </div>
-        <div class="col"></div>
+        <div class="col" style="font-size: 11px;border-bottom:1px solid black;"></div>
     </div>
 
     <div class="ms-1 row mb-1">

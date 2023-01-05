@@ -113,7 +113,7 @@
         <div class="col-3">
         <input type="text" style="font-size:13px;" class="form-control bg-light text-danger text-center" id="refRequete" name="refRequete" value=<?php genererRefSafeToDispatch()?>></input></div>
        
-        <div class="col"></div>
+        <div class="col">(Page 1 sur 2)</div>
        
 </div>
 
@@ -421,6 +421,7 @@
         <div class="col"></div>
     </div>
 
+
     <div class="ms-3 row">
         <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">22</label></div>
         <div style="font-size:11px;" class="col-5 d-flex align-items-center">DATE DE LA VIOLATION</div>
@@ -431,6 +432,29 @@
         </div>
         <div class="col"></div>
     </div>
+
+
+    <div class="ms-3 row">
+        <div class="col-3" style="font-size:12px;"></div>
+        <div class="col-3"></div>       
+        <div class="col-3">&nbsp</div>
+       
+        <div class="col"></div>
+       
+    </div>
+
+    <div class="ms-3 row">
+        <div class="col-3" style="font-size:12px;">Reference</div>
+        <div class="col-3"></div>       
+        <div class="col-3">
+        <input type="text" style="font-size:13px;" class="form-control bg-light text-danger text-center" id="refRequete" name="" value=<?php genererRefSafeToDispatch()?>></input></div>
+       
+        <div class="col">(Page 2 sur 2)</div>
+       
+    </div>
+
+
+
 
     <div class="ms-3 row">
         <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">23</label></div>
@@ -498,6 +522,101 @@
         
     </div>
     </form>
+
+    <div class="row">NOTES IMPORTANTES
+        <table class="table mx-auto table-sm">
+            <thead>
+                <th>#</th>
+                <th>Designations</th>
+                <th>Notes</th>
+            </thead>
+            <tbody>
+
+                <tr >
+                    <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">3</label></div></td>
+                    <td><div style="font-size:13px;" class="">DATE DU DERNIER VOYAGE</div></td>
+                    <td class="pt-3" rowspan="3" style="font-size:13px;border-bottom:1px solid">Cela nous permettra de réclammer rapidement </br>auprès des Opérateurs et Dépôts MINES,</br>les STL non disponibles sur ARIOFLOW au moment de la demande de Bons</td>
+                </tr>
+                <tr>
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">4</label></div></td>
+                    <td><div style="font-size:13px;" class="">SITE/LIEU DU DEPOTAGE</div></td>
+                   
+                   
+                </tr>
+                <tr style="border-bottom:1px solid">
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">5</label></div></td>
+                <td><div style="font-size:13px;" class="">DATE DU DERNIER SAFE TO LOAD</div></td>   
+                </tr>
+
+
+                <tr >
+                    <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">6</label></div></td>
+                    <td><div style="font-size:13px;" class="">DATE ECHEANCE ASSURANCE CAMION</div></td>
+                    <td rowspan="5" style="font-size:13px;border-bottom:1px solid;padding-top:60px">En cas de renouvellement, joindre au dossier une copie de chaque document</td>
+                </tr>
+                <tr>
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">7</label></div></td>
+                <td><div style="font-size:13px;" class="">DATE ECHEANCE ASSURANCE PRODUIT</div></td>
+                                     
+                </tr>
+                <tr >
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">8</label></div></td>
+                <td><div style="font-size:13px;" class="">DATE ECHEANCE CCVA</div></td>   
+                </tr>
+
+                <tr >
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">9</label></div></td>
+                <td><div style="font-size:13px;" class="">DATE ECHEANCE BUMIGEB</div></td>   
+                </tr>
+
+                <tr style="border-bottom:1px solid">
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">10</label></div></td>
+                <td><div style="font-size:13px;" class="">DATE ECHEANCE CONTRÔLE TECHNIQUE</div></td>   
+                </tr>
+
+
+                <tr style="border-bottom:1px solid">
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">11</label></div></td>
+                <td><div style="font-size:13px;" class="">EXTRACTION VIDEO REALISEE ?</div></td>
+                <td style="font-size:13px;border-bottom:1px solid;">Si oui, joindre la fiche INNOTEC/GLOBO</td>   
+                </tr>
+
+                <tr>
+                    <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">12</label></div></td>
+                    <td><div style="font-size:13px;" class="">L'OBC EST-IL EN BON ETAT ET FONCTIONNEL ?</div></td>
+                    <td class="pt-3" rowspan="2" style="font-size:13px;border-bottom:1px solid">Si non, demander une intervention INNOTEC/GLOBO et joindre la fiche d'intervetion ; Si oui, passer à la question 14</td>
+                </tr>
+
+                <tr style="border-bottom:1px solid">
+                <td><div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:20px;height:20px"><label for="">13</label></div></td>
+                    <td><div style="font-size:13px;" class="">LA CAMERA EST-ELLE EN BON ETAT ET FONCTIONNELLE ?</div></td>
+                   
+                   
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 
     <div class="mt-1 card ms-1 mx-auto row" style="width:400px;">
         <div class="row fw-bold h-25 mx-auto">VISA TRANSPORTEUR</div>
