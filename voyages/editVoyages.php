@@ -16,6 +16,19 @@ if(isset($_GET['refVoy'])){
 
 ?>
 
+<?php 
+$row;
+if(isset($_GET['req_Transporteur'])){
+    $requete=$_GET['req_Transporteur'];
+    $row = rechercherleVoyageDuSafeToDispatch($requete);
+    $ref=$row["ref_Voyage"];
+
+    $lecamion=rechercherlesDonneesduCamion($row["ref_Camion_Voyage"]);
+    $capaciteCamion=$lecamion["capacite_Compatriment_C1"]+$lecamion["capacite_Compatriment_C2"]+$lecamion["capacite_Compatriment_C3"]+$lecamion["capacite_Compatriment_C4"]+$lecamion["capacite_Compatriment_C5"]+$lecamion["capacite_Compatriment_C6"];
+}
+
+?>
+
 
 
 
@@ -60,7 +73,7 @@ if(isset($_GET['refVoy'])){
                     <div class="row g-0">
                     <div class="mb-1 row">
                         <div class="col"><label type="text" class="form-control bg-light" id="refVoyage">Ref.Voy</label></div>           
-                        <div class="col"><input type="text" class="form-control bg-light text-danger text-center" id="refVoyage" name="refVoyage" disabled value=<?php echo $_GET["refVoy"]?>></input></div> 
+                        <div class="col"><input type="text" class="form-control bg-light text-danger text-center" id="refVoyage" name="refVoyage" disabled value=<?php echo $ref ?>></input></div> 
                     
                     </div>
                     <div class="mb-1 row">
@@ -259,7 +272,7 @@ if(isset($_GET['refVoy'])){
             $dateArrVoyPrec='Pas de données';
             
             //Valeur reelle
-            $voyPrec=rechercherlePrecedentVoyage($_GET["refVoy"]);
+            $voyPrec=rechercherlePrecedentVoyage($ref);
             if($voyPrec!=null){
                 $refVoyPrec= $voyPrec["ref_Voyage"];
             $dateArrVoyPrec=$voyPrec["dateRetourDuSite"];

@@ -1,6 +1,38 @@
 <?php
 
 ///////////////////////////////////////////////////////////////////////
+function genererlesRequetesTransporteurs(){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+
+  $conn = new mysqli($server,$username,$password,$db);
+
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+
+  $sql = "SELECT * FROM safetodispatchs ORDER BY ref_SafeToDispatch DESC";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo '<option ';echo $row["ref_SafeToDispatch"];echo'">';echo $row["ref_SafeToDispatch"];echo'</option>';
+    }
+  } else {
+    echo "0 results";
+  }
+  $conn->close();
+
+  }
+
+
+///////////////////////////////////////////////////////////////////////
       function genererDepotChargementCreationVoyage(){
 
       $server="localhost";
@@ -859,6 +891,70 @@ function designationTransporteursSafeToDispatch($refTransporteur){
 
   }
 
+  /////////////////////////////////////////////////////////////////////////////////////
+  function designationCamionSafeToDispatch($ref){
+
+    $server="localhost";
+    $username="root";
+    $password="";
+    $db="db_transport";
+    
+    $conn = new mysqli($server,$username,$password,$db);
+    
+    // Check connection
+    if ($conn -> connect_errno) {
+      echo "Failed to connect to MySQL: " . $conn -> connect_error;
+      exit();
+    }
+    
+    $sql = "SELECT ref_Camion, immatriculation_Tracteur, immatriculation_Semi_Remorque FROM camions WHERE Ref_Camion='$ref'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        echo'<option selected value="';echo $row["ref_Camion"];echo'">';echo $row["immatriculation_Tracteur"]." / ".$row["immatriculation_Semi_Remorque"];echo'</option>';                                      
+                                           
+      }
+    } else {
+      echo "0 results";
+    }
+    $conn->close();
+    
+    }
+
+/////////////////////////////////////////////////////
+    function designationChauffeurSafeToDispatch($ref){
+
+      $server="localhost";
+      $username="root";
+      $password="";
+      $db="db_transport";
+      
+      $conn = new mysqli($server,$username,$password,$db);
+      
+      // Check connection
+      if ($conn -> connect_errno) {
+        echo "Failed to connect to MySQL: " . $conn -> connect_error;
+        exit();
+      }
+      
+      $sql = "SELECT ref_Chauffeur, nom_Chauffeur, prenom_Chauffeur FROM chauffeurs WHERE Ref_Chauffeur='$ref'";
+      $result = $conn->query($sql);
+      
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {                    
+          echo'<option selected value="';echo $row["ref_Chauffeur"];echo'">';echo $row["nom_Chauffeur"]." ".$row["prenom_Chauffeur"];echo'</option>';                                     
+        }
+      } else {
+        echo "0 results";
+      }
+      $conn->close();
+      
+      }
+
+
 
   ///////////////////////////////////////////////////////////////////////
 function genererProduitsSafeToDispatch(){
@@ -986,6 +1082,255 @@ function genererProduitsSafeToDispatch(){
       $conn->close();
       
       }
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+function genererlisteSafeToDispatch($camion){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $sql = "SELECT * FROM safetodispatchs WHERE refCamion='$camion' ORDER BY ref_SafeToDispatch DESC";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo 
+      '
+      <tr>
+          <th scope="row">';echo $row["ref_SafeToDispatch"];echo'</th>
+          <td scope="row">';echo $row["date_Etablissement"];echo'</td>
+          <td scope="row">';echo designationTransporteursSafeToDispatch($row["ref_Transporteur"]);echo'</td>
+          <td scope="row">';echo designationProduitListeSafeToDispatch($row["refProduit"]);echo'</td>
+          <td scope="row">';echo designationChauffeur($row["refChauffeur"]);echo'</td>
+          <td scope="row">';echo designationDepotLivraisonListeSafeToDispatch($row["refLieuLivraison"]);echo'</td>
+          <td scope="row">';echo designationCamion($row["refCamion"]);echo'</td>
+          <td scope="row">';echo $row["numPermis"];echo'</td>
+          <td scope="col"><a class="text-decoration-none" href="editFicheSafeToDispatch.php?refSTD=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-danger fs-5 text-center">&#9998</div></a></td>
+          <td scope="col"><a class="text-decoration-none" href="editVoyages.php?req_Transporteur=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-dark fs-5 text-center">&#x2638</div></a></td>
+      </tr>
+        '
+
+      ;
+    }
+  } else {
+    echo 
+    '
+    <div class="ms-5 mt-1 py-0 w-50 alert alert-danger" role="alert">
+        Aucun resultat trouvé !
+    </div>
+    ';
+  }
+  $conn->close();
+  
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+function genererlistetouslesSafeToDispatch(){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $sql = "SELECT * FROM safetodispatchs ORDER BY ref_SafeToDispatch DESC";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo 
+      '
+      <tr>
+          <th scope="row">';echo $row["ref_SafeToDispatch"];echo'</th>
+          <td scope="row">';echo $row["date_Etablissement"];echo'</td>
+          <td scope="row">';echo designationTransporteursSafeToDispatch($row["ref_Transporteur"]);echo'</td>
+          <td scope="row">';echo designationProduitListeSafeToDispatch($row["refProduit"]);echo'</td>
+          <td scope="row">';echo designationChauffeur($row["refChauffeur"]);echo'</td>
+          <td scope="row">';echo designationDepotLivraisonListeSafeToDispatch($row["refLieuLivraison"]);echo'</td>
+          <td scope="row">';echo designationCamion($row["refCamion"]);echo'</td>
+          <td scope="row">';echo $row["numPermis"];echo'</td>
+          <td scope="col"><a class="text-decoration-none" href="editFicheSafeToDispatch.php?refSTD=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-danger fs-5 text-center">&#9998</div></a></td>
+          <td scope="col"><a class="text-decoration-none" href="editVoyages.php?req_Transporteur=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-dark fs-5 text-center">&#x2638</div></a></td>
+      </tr>
+        '
+
+      ;
+    }
+  } else {
+    echo 
+    '
+    <div class="ms-5 mt-1 py-0 w-50 alert alert-danger" role="alert">
+        Aucun resultat trouvé !
+    </div>
+    ';
+  }
+  $conn->close();
+  
+  }
+
+////////////////////////////////////////////////////////////////////////
+  function designationProduitListeSafeToDispatch($refProduit){
+
+    $server="localhost";
+    $username="root";
+    $password="";
+    $db="db_transport";
+    
+    $conn = new mysqli($server,$username,$password,$db);
+    
+    // Check connection
+    if ($conn -> connect_errno) {
+      echo "Failed to connect to MySQL: " . $conn -> connect_error;
+      exit();
+    }
+    
+    $sql = "SELECT ref_Produit, designation_Produit FROM produits WHERE ref_Produit='$refProduit'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+       echo $row["designation_Produit"];                                   
+      }
+    } else {
+      echo "0 results";
+    }
+    $conn->close();
+    
+    }
+
+
+ //////////////////////////////////////////////////////////////////////////////////////
+ function designationDepotLivraisonListeSafeToDispatch($ref){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $sql = "SELECT Ref_Depot_Livraison, Designation_Depot_Livraison FROM depotslivraisons WHERE Ref_Depot_Livraison='$ref'";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo $row["Designation_Depot_Livraison"];                                                                     
+    }
+  } else {
+    echo "0 results";
+  }
+  $conn->close();
+  
+  }
+
+
+    //////////////////////////////////////////////////////////////////////////////
+    function rechercherleVoyageDuSafeToDispatch($ref){
+
+      $server="localhost";
+      $username="root";
+      $password="";
+      $db="db_transport";
+      
+      $conn = new mysqli($server,$username,$password,$db);
+      
+      // Check connection
+      if ($conn -> connect_errno) {
+        echo "Failed to connect to MySQL: " . $conn -> connect_error;
+        exit();
+      }
+      
+      $sql = "SELECT * FROM voyages WHERE req_Transporteur='$ref'";
+      $result = $conn->query($sql);
+      
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+         return $row;
+                            ;
+        }
+      } else {
+        echo 
+        '
+        <div class="ms-5 mt-1 py-0 w-50 alert alert-danger" role="alert">
+            Aucun resultat trouvé !
+        </div>
+        ';
+      }
+      $conn->close();
+      
+      }
+
+
+//////////////////////////////////////////////////////////////////////////////
+function rechercherLeSafeToDispatch($requete){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $sql = "SELECT * FROM safetodispatchs WHERE ref_SafeToDispatch='$requete'";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+     return $row;
+                        ;
+    }
+  } else {
+    echo 
+    '
+    <div class="ms-5 mt-1 py-0 w-50 alert alert-danger" role="alert">
+        Aucun resultat trouvé !
+    </div>
+    ';
+  }
+  $conn->close();
+  
+  }      
+
+
+
 
 
 

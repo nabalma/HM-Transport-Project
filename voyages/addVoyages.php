@@ -49,7 +49,14 @@
               </div>
               <div class="mb-1 row">
               <div class="col"><label type="text" class="form-control bg-light" id="reqTransporteur">Req.Transporteur</label></div>
-                <div class="col"><input type="text" class="form-control bg-light text-primary" id="reqTransporteur" name="reqTransporteur" ></input></div> 
+                <div class="col">
+                <select class="form-select text-primary" aria-label="Default select example" name="depotChargement">
+                      <option selected>Choisir Requête</option>
+                    <?php     
+                        genererlesRequetesTransporteurs();                    
+                    ?>;
+                </select>
+                </div> 
                 
             
               </div>
@@ -62,9 +69,7 @@
                     <?php     
                         genererDepotChargementCreationVoyage();                    
                     ?>;
-
-
-                  </select>
+                </select>
                 </div>          
               </div>
 
