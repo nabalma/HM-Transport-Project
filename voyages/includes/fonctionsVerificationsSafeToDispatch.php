@@ -145,7 +145,7 @@ function estCeQueLeCamionAppartientAuTransporteur($refTransporteur,$refCamion){
 
 
       //////////////////////////////////////////////////////////////////////////////////////
-    function designationCamionSafeToDispatch($refCamion){
+    function designationCamionSafeToDispatchVerification($refCamion){
 
       $server="localhost";
       $username="root";
@@ -239,7 +239,7 @@ function estCeQueLeCamionAppartientAuTransporteur($refTransporteur,$refCamion){
 
 
          //////////////////////////////////////////////////////////////////////////////////////
-    function designationChauffeurSafeToDispatch($refChauffeur){
+    function designationChauffeurSafeToDispatchVerification($refChauffeur){
 
       $server="localhost";
       $username="root";

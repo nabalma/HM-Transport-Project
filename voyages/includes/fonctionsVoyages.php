@@ -882,7 +882,7 @@ function designationTransporteursSafeToDispatch($refTransporteur){
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      echo $row["Designation_Transporteur"];
+      echo'<option selected value="';echo $row["Ref_Transporteur"];echo'">';echo $row["Designation_Transporteur"];echo'</option>';                                       
     }
   } else {
     echo "&nbsp";
@@ -913,7 +913,7 @@ function designationTransporteursSafeToDispatch($refTransporteur){
     if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
-        echo'<option selected value="';echo $row["ref_Camion"];echo'">';echo $row["immatriculation_Tracteur"]." / ".$row["immatriculation_Semi_Remorque"];echo'</option>';                                      
+        echo'<option selected value="';echo $row["ref_Camion"];echo'">';echo $row["immatriculation_Tracteur"]." / ".$row["immatriculation_Semi_Remorque"];echo'</option>';                                       
                                            
       }
     } else {
@@ -1212,7 +1212,7 @@ function genererlistetouslesSafeToDispatch(){
     if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
-       echo $row["designation_Produit"];                                   
+       echo '<option value="';echo $row["ref_Produit"];echo'">';echo $row["designation_Produit"];echo'</option>';                                   
       }
     } else {
       echo "0 results";

@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php include "includes/voyages_header.php"; ?>
 <?php include "includes/fonctionsVoyages.php"; ?>
+<?php include "includes/fonctionsVerificationsSafeToDispatch.php"; ?>
 
 
 <!-------------------------------------------------------------------->
@@ -19,7 +20,7 @@ if(isset($_GET["refSTD"])){
 
 <div class="mt-3 container">
 
-  <form action="verificationSafeToDispatch.php" method="post">  
+  <form action="verificationEditSafeToDispatch.php" method="post">  
 <div class="mt-2 fs-4 btn btn-dark row w-75 mx-auto">FICHE SAFE TO DISPATCH </div>
 
 <div class="ms-1 row mt-1">
@@ -83,7 +84,7 @@ if(isset($_GET["refSTD"])){
         <div class="col-3">
             
             <select class="form-select text-primary text-center" aria-label="Default select example" name="refCamion" required>
-            <option selected><?php designationCamionSafeToDispatch($safetoDispatch["refCamion"]);?></option>          
+            <?php designationCamionSafeToDispatch($safetoDispatch["refCamion"]);?>          
                 <?php     
                      genererListeCamionsSafeToDispatch()              
                 ?>;
@@ -100,7 +101,7 @@ if(isset($_GET["refSTD"])){
         <div class="col-3">
             
             <select class="form-select text-primary text-center" aria-label="Default select example" name="refProduit" required>
-            <option selected><?php designationProduitListeSafeToDispatch($safetoDispatch["refProduit"]);?></option>      
+            <?php designationProduitListeSafeToDispatch($safetoDispatch["refProduit"]);?>     
                 <?php     
                      genererProduitsSafeToDispatch()           
                 ?>;

@@ -106,7 +106,7 @@
 
 <div class="container">
     <!-- VERIFICATION SAFE TO DISPATCH --->
-    <form action="verificationSafeToDispatch.php" method="post">  
+    <form action="verificationAddSafeToDispatch.php" method="post">  
 <div class="ms-1 fs-4 btn btn-dark row w-100 py-0">FICHE SAFE TO DISPATCH </div>
 
 <div class="ms-1 row">
@@ -151,7 +151,7 @@
         <input style="font-size:10px;" class="form-control bg-light text-primary" id="camion" name="verifRefCamion" value=<?php echo $refCamion?>></input> 
         </div>
         <div class="col-3">               
-        <label style="font-size:10px;" class="form-control bg-light text-primary" id="camion" name="designationCamion"><?php designationCamionSafeToDispatch($refCamion)?></label>             
+        <label style="font-size:10px;" class="form-control bg-light text-primary" id="camion" name="designationCamion"><?php designationCamionSafeToDispatchVerification($refCamion)?></label>             
         
         </div>
         <div class="col"><?php estCeQueLeCamionAppartientAuTransporteur($refTransporteur,$refCamion)?></div>
@@ -331,7 +331,7 @@
         </div>
         
         <div class="col-3">
-        <label style="font-size:10px;" class="form-control bg-light text-primary" id="designationChauffeur" name="designationChauffeur" ><?php designationChauffeurSafeToDispatch($refChauffeur)?></label>             
+        <label style="font-size:10px;" class="form-control bg-light text-primary" id="designationChauffeur" name="designationChauffeur" ><?php designationChauffeurSafeToDispatchVerification($refChauffeur)?></label>             
         </div>
 
 

@@ -6,7 +6,7 @@
 <!-------------------------------------------------------------------->
 <div class="mt-3 container">
 
-  <form action="verificationSafeToDispatch.php" method="post">  
+  <form action="verificationAddSafeToDispatch.php" method="post">  
 <div class="mt-2 fs-4 btn btn-dark row w-75 mx-auto">FICHE SAFE TO DISPATCH </div>
 
 <div class="ms-1 row mt-1">
