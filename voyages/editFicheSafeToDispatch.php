@@ -299,8 +299,8 @@ if(isset($_GET["refSTD"])){
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">18</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
-        <div class="col-3">
-        <input required type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="dernierTrajet" value=<?php echo $safetoDispatch["dernierTrajet"]; ?>></input>          
+        <div class="col-3">   
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet"><?php echo $safetoDispatch["dernierTrajet"]; ?></textarea>                    
         </div>
         <div class="col"></div>
     </div>
@@ -309,7 +309,7 @@ if(isset($_GET["refSTD"])){
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">19</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">DATE DEBUT ET FIN DU DERNIER TRAJET (ALLER - RETOUR)</div>
         <div class="col-3">
-        <input required type="date" class="form-control bg-light text-primary text-center" id="transporteur" name="datedernierTrajet" value=<?php echo $safetoDispatch["datedernierTrajet"]; ?>></input>          
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet"><?php echo $safetoDispatch["datedernierTrajet"]; ?></textarea>                              
         </div>
         <div class="col"></div>
     </div>
@@ -334,7 +334,7 @@ if(isset($_GET["refSTD"])){
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">21</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">TYPE DE VIOLATION ENREGISTREE</div>
         <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="transporteur" name="typeViolation" value=<?php echo $safetoDispatch["typeViolation"]; ?>></input>          
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="typeViolation" name="typeViolation"><?php echo $safetoDispatch["typeViolation"]; ?></textarea>                              
         </div>
         <div class="col" style="font-size: 11px;"></div>
     </div>
@@ -352,8 +352,8 @@ if(isset($_GET["refSTD"])){
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">23</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">NATURE DE LA SANCTION PRONONCEE</div>
-        <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="" name="natureSanction" value=<?php echo $safetoDispatch["natureSanction"];?>></input>             
+        <div class="col-3">        
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="natureSanction" name="natureSanction"><?php echo $safetoDispatch["natureSanction"];?></textarea>                                           
         <div class="col" style="font-size: 11px;"></div>
     </div>
     </div>
@@ -399,7 +399,7 @@ if(isset($_GET["refSTD"])){
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">27</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">THEME(S) ABORDE(S) -   <span class="text-danger">   Joindre la liste d'émargement</span></div>
         <div class="col-3">
-        <input required type="text" class="form-control bg-light text-primary text-center" id="" name="themesAbordes" value=<?php echo $safetoDispatch["themesAbordes"]; ?>></input>                    
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="themesAbordes" name="themesAbordes"><?php echo $safetoDispatch["themesAbordes"]; ?></textarea>                                                               
         </div>
         <div class="col" style="font-size: 11px;">A compter de la diffusion de la présente liste, Total Burkina fera un rappel des ALERTES HSE pour toute fin utile.</div>
     </div>

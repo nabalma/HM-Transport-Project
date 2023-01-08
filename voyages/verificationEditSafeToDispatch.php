@@ -36,23 +36,27 @@
 
         $echeanceVisiteMedicale=$_POST["echeanceVisiteMedicale"];
         $dernierTrajet=$_POST["dernierTrajet"];
+        
         $datedernierTrajet=$_POST["datedernierTrajet"];
         $commitViolation=$_POST["commitViolation"];
         $typeViolation=$_POST["typeViolation"];
+       
         $dateViolation=$_POST["dateViolation"];
 
 
         $natureSanction=$_POST["natureSanction"];
+       
         $nbreJoursRestantSanction=$_POST["nbreJoursRestantSanction"];
         $soldePointsScp=$_POST["soldePointsScp"];
 
         $dateDerniereSensibilisation=$_POST["dateDerniereSensibilisation"];
         $themesAbordes=$_POST["themesAbordes"];
+        
        
     };
     
 
-    if(isset($_POST["soumettre"])){
+    if(isset($_POST["modifier"])){
 
         $requeteTransporteur=$_POST["refRequete"];
         $refRequestDate=$_POST["requestDate"];
@@ -96,7 +100,7 @@
          $themesAbordes=$_POST["themesAbordes"];
         
  
-        ajouterUnSafeToDispatch($refRequestDate,$refTransporteur,$refCamion,$refProduit,$dateDernierVoyage,$refLieuLivraison,$dateDernierSafeLoad,$dateEcheanceAssurCamion,$dateEcheanceAssurProduit,$dateEcheanceCcva,$dateEcheanceAssurBumigeb,$dateEcheanceAssurControlTech,$extractionVideo,$etatObc,$etatCamera,$refChauffeur,$numPermis,$dateFormationChauffeur,$echeanceVisiteMedicale,$dernierTrajet,$datedernierTrajet,$commitViolation,$typeViolation,$dateViolation,$natureSanction,$nbreJoursRestantSanction,$soldePointsScp,$dateDerniereSensibilisation,$themesAbordes);
+        modifierUnSafeToDispatch($requeteTransporteur,$refRequestDate,$refTransporteur,$refCamion,$refProduit,$dateDernierVoyage,$refLieuLivraison,$dateDernierSafeLoad,$dateEcheanceAssurCamion,$dateEcheanceAssurProduit,$dateEcheanceCcva,$dateEcheanceAssurBumigeb,$dateEcheanceAssurControlTech,$extractionVideo,$etatObc,$etatCamera,$refChauffeur,$numPermis,$dateFormationChauffeur,$echeanceVisiteMedicale,$dernierTrajet,$datedernierTrajet,$commitViolation,$typeViolation,$dateViolation,$natureSanction,$nbreJoursRestantSanction,$soldePointsScp,$dateDerniereSensibilisation,$themesAbordes);
          
      }
 
@@ -106,7 +110,7 @@
 
 <div class="container">
     <!-- VERIFICATION SAFE TO DISPATCH --->
-    <form action="verificationAddSafeToDispatch.php" method="post">  
+    <form action="verificationEditSafeToDispatch.php" method="post">  
 <div class="ms-1 fs-4 btn btn-dark row w-100 py-0">FICHE SAFE TO DISPATCH </div>
 
 <div class="ms-1 row">
@@ -376,9 +380,8 @@
         <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">18</label></div>
         <div style="font-size:10px;" class="col-5 d-flex align-items-center">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
        
-        <div class="col-4">
-        <input style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet" value=<?php echo $dernierTrajet?>></input>   
-        
+        <div class="col-4">   
+        <textarea rows="1" style="font-size:11px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet"><?php echo $dernierTrajet?></textarea>          
         </div>
         <div class="col"></div>
     </div>
@@ -387,9 +390,8 @@
         <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">19</label></div>
         <div style="font-size:10px;" class="col-5 d-flex align-items-center">DATE DEBUT ET FIN DERNIER TRAJET (ALLER - RETOUR)</div>
        
-        <div class="col-4">
-        <input style="font-size:10px;" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet" value=<?php echo $datedernierTrajet?>></input>      
-        
+        <div class="col-4">    
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet"><?php echo $datedernierTrajet?></textarea>                              
         </div>
         <div class="col"></div>
     </div>
@@ -517,8 +519,8 @@
     <div class="ms-1 row">
         <div class="col mx-auto"></div>
         <div class="col mx-auto"></div>
-        <div class="col mx-auto"><a href="ficheSafeToDispatch.php" class="btn btn-outline-danger w-100">Reprendre la saisie</a></div>
-        <div class="col mx-auto"><button type="submit" class="btn btn-outline-warning w-100" name="soumettre">Mettre à jour </button></div>
+        <div class="col mx-auto"><a href="editFicheSafeToDispatch.php" class="btn btn-outline-danger w-100">Reprendre la saisie</a></div>
+        <div class="col mx-auto"><button type="submit" class="btn btn-outline-warning w-100" name="modifier">Mettre à jour </button></div>
         
     </div>
     </form>

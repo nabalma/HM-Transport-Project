@@ -331,8 +331,9 @@ function ajouterUnSafeToDispatch($refRequestDate,$refTransporteur,$refCamion,$re
 if ($conn->query($sql) === TRUE) {
 
       echo'<div class="mt-3 row mx-auto w-75">
-      <div class="alert alert-success" role="alert">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
             Safe to Dispatch crée avec Succés !
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
       </div>
     </div>';
 
@@ -347,6 +348,45 @@ $conn->close();
 
 
 
+ //////////////////////////////////////////////////////////////////////////////////////
+ function modifierUnSafeToDispatch($refSafeToDispatch,$refRequestDate,$refTransporteur,$refCamion,$refProduit,$dateDernierVoyage,$refLieuLivraison,$dateDernierSafeLoad,$dateEcheanceAssurCamion,$dateEcheanceAssurProduit,$dateEcheanceCcva,$dateEcheanceAssurBumigeb,$dateEcheanceAssurControlTech,$extractionVideo,$etatObc,$etatCamera,$refChauffeur,$numPermis,$dateFormationChauffeur,$echeanceVisiteMedicale,$dernierTrajet,$datedernierTrajet,$commitViolation,$typeViolation,$dateViolation,$natureSanction,$nbreJoursRestantSanction,$soldePointsScp,$dateDerniereSensibilisation,$themesAbordes){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $themesAbordes=$conn->real_escape_string($themesAbordes);
+  $typeViolation=$conn->real_escape_string($typeViolation);
+  $natureSanction=$conn->real_escape_string($natureSanction);
+
+  $sql = "UPDATE safetodispatchs SET date_Etablissement='$refRequestDate', ref_Transporteur='$refTransporteur', refCamion='$refCamion', refProduit='$refProduit', dateDernierVoyage='$dateDernierVoyage', refLieuLivraison='$refLieuLivraison', dateDernierSafeLoad='$dateDernierSafeLoad', dateEcheanceAssurCamion='$dateEcheanceAssurCamion', dateEcheanceAssurProduit='$dateEcheanceAssurProduit', dateEcheanceCcva='$dateEcheanceCcva', dateEcheanceAssurBumigeb='$dateEcheanceAssurBumigeb', dateEcheanceAssurControlTech='$dateEcheanceAssurControlTech', extractionVideo='$extractionVideo', etatObc='$etatObc', etatCamera='$etatCamera', refChauffeur='$refChauffeur', numPermis='$numPermis', dateFormationChauffeur='$dateFormationChauffeur', echeanceVisiteMedicale='$echeanceVisiteMedicale', dernierTrajet='$dernierTrajet', datedernierTrajet='$datedernierTrajet', commitViolation='$commitViolation', typeViolation='$typeViolation', dateViolation='$dateViolation', natureSanction='$natureSanction', nbreJoursRestantSanction='$nbreJoursRestantSanction', soldePointsScp='$soldePointsScp', dateDerniereSensibilisation='$dateDerniereSensibilisation', themesAbordes='$themesAbordes' WHERE ref_SafeToDispatch='$refSafeToDispatch'";
+
+if ($conn->query($sql) === TRUE) {
+
+      echo'<div class="mt-3 row mx-auto w-75">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Safe to Dispatch mise à jour avec Succés !
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+</div>
+    </div>';
+
+
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+$conn->close();
+}
+  
 
 
 

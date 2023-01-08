@@ -48,7 +48,7 @@
          <th scope="col">Camions</th>
         <th scope="col">Num Permis</th>      
         <th scope="col" class="text-primary">Editer</th>
-        <th scope="col" class="text-primary">Atteindre Voyage</th>
+       
 
         </tr>
     </thead>

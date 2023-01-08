@@ -50,7 +50,7 @@
               <div class="mb-1 row">
               <div class="col"><label type="text" class="form-control bg-light" id="reqTransporteur">Req.Transporteur</label></div>
                 <div class="col">
-                <select class="form-select text-primary" aria-label="Default select example" name="depotChargement">
+                <select class="form-select text-primary" aria-label="Default select example" name="reqTransporteur">
                       <option selected>Choisir Requête</option>
                     <?php     
                         genererlesRequetesTransporteurs();                    

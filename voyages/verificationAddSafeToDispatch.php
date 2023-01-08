@@ -376,9 +376,8 @@
         <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">18</label></div>
         <div style="font-size:10px;" class="col-5 d-flex align-items-center">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
        
-        <div class="col-4">
-        <input style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet" value=<?php echo $dernierTrajet?>></input>   
-        
+        <div class="col-4"> 
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet"><?php echo $dernierTrajet?></textarea>          
         </div>
         <div class="col"></div>
     </div>
@@ -387,9 +386,8 @@
         <div class="btn btn-secondary text-center d-flex align-items-center justify-content-center" style="width:40px;height:30px"><label for="">19</label></div>
         <div style="font-size:10px;" class="col-5 d-flex align-items-center">DATE DEBUT ET FIN DERNIER TRAJET (ALLER - RETOUR)</div>
        
-        <div class="col-4">
-        <input style="font-size:10px;" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet" value=<?php echo $datedernierTrajet?>></input>      
-        
+        <div class="col-4">     
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet"><?php echo $datedernierTrajet?></textarea>          
         </div>
         <div class="col"></div>
     </div>

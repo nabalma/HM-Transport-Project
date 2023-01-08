@@ -203,7 +203,7 @@ function genererlesRequetesTransporteurs(){
                 exit();
               }
               
-              $sql = "SELECT * FROM voyages WHERE ref_Camion_Voyage='$camion' ORDER BY ref_Voyage";
+              $sql = "SELECT * FROM voyages WHERE ref_Camion_Voyage='$camion' ORDER BY req_Transporteur DESC";
               $result = $conn->query($sql);
               
               if ($result->num_rows > 0) {
@@ -260,7 +260,7 @@ function genererlesRequetesTransporteurs(){
                 exit();
               }
               
-              $sql = "SELECT * FROM voyages ORDER BY ref_Voyage";
+              $sql = "SELECT * FROM voyages ORDER BY req_Transporteur DESC";
               $result = $conn->query($sql);
               
               if ($result->num_rows > 0) {
@@ -1120,7 +1120,7 @@ function genererlisteSafeToDispatch($camion){
           <td scope="row">';echo designationCamion($row["refCamion"]);echo'</td>
           <td scope="row">';echo $row["numPermis"];echo'</td>
           <td scope="col"><a class="text-decoration-none" href="editFicheSafeToDispatch.php?refSTD=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-danger fs-5 text-center">&#9998</div></a></td>
-          <td scope="col"><a class="text-decoration-none" href="editVoyages.php?req_Transporteur=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-dark fs-5 text-center">&#x2638</div></a></td>
+          
       </tr>
         '
 
@@ -1172,7 +1172,7 @@ function genererlistetouslesSafeToDispatch(){
           <td scope="row">';echo designationCamion($row["refCamion"]);echo'</td>
           <td scope="row">';echo $row["numPermis"];echo'</td>
           <td scope="col"><a class="text-decoration-none" href="editFicheSafeToDispatch.php?refSTD=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-danger fs-5 text-center">&#9998</div></a></td>
-          <td scope="col"><a class="text-decoration-none" href="editVoyages.php?req_Transporteur=';echo $row["ref_SafeToDispatch"];echo'"><div class="text-dark fs-5 text-center">&#x2638</div></a></td>
+          
       </tr>
         '
 
