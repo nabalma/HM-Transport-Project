@@ -17,6 +17,7 @@
         $email_utilisateur = $_POST["inputEmail"];
         $password_utilisateur = $_POST["inputPassword"];
         $profil_utilisateur = $_POST["gridRadios"];
+        $statut_utilisateur = 0;
 
         /* Hashage du mot de passe */
 
@@ -64,7 +65,7 @@
                           if ($nombre_abonnes_existants==0)  // Si le compte n'est pas encore dans la base, nombre_abonnes_existants=0
                             {
                                   // The query to be executed.   
-                                  $queryInsert = "INSERT INTO tblutilisateurs VALUES ('$nom_utilisateur','$prenom_utilisateur','$email_utilisateur','$encrypted_password',$profil_utilisateur);";           
+                                  $queryInsert = "INSERT INTO tblutilisateurs(nom, prenom, email, motdepasse, profilutilisateur, statutApprobation) VALUES ('$nom_utilisateur','$prenom_utilisateur','$email_utilisateur','$encrypted_password',$profil_utilisateur,$statut_utilisateur);";           
                                                       
                                   //Execution of the query. 
                                   $resultInsert= mysqli_query($connection,$queryInsert);
@@ -103,7 +104,7 @@
 
                                       <div class="card mt-1 mx-auto w-75">
                                       <div class="card-body">
-                                          <h6 class="card-title">Vous pouvez désormais vous connecter en utilisant votre Email et votre mot de passe.</h6>
+                                          <h6 class="card-title">Lorsque le compte sera approuvé, Vous pourrez désormais vous connecter en utilisant votre Email et votre mot de passe.</h6>
                                             <p class="card-text">         
                                             </p>
                                         <div class="d-flex justify-content-center">

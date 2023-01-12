@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
               else
               {
                   // The query to be executed. /*Extraction des donnees de lutilsateur connecté
-                  $user_connected = "SELECT * FROM tblutilisateurs WHERE email = '$user_email';";
+                  $user_connected = "SELECT * FROM tblutilisateurs WHERE email = '$user_email' AND statutApprobation=1;";
                   // Execution of the query. 
                   $db_user_connected_query= mysqli_query($connection,$user_connected);
 

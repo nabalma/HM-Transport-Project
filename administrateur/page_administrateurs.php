@@ -13,6 +13,15 @@
 </div>
 <hr>
 
+<div class="row">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col">
+  <a type="button" href="listDesUtilisateursAApprouver.php" class="mb-2 btn btn-outline-danger w-100">UTILISATEURS A APPROUVER</a>
+  </div>
+</div>
+
 <div class="row"> <!--Ligne 1 -->
 
   <div class="col border border-primary rounded-3 me-1"> <!--Col Depot de Chargement -->
@@ -257,15 +266,6 @@
 </div> <!--Fin de le Ligne 1 -->
 
 <hr>
-
-<div class="row">
-  <div class="col"></div>
-  <div class="col"></div>
-  <div class="col"></div>
-  <div class="col">
-  <button type="button" class="btn btn-primary active w-100">AFFICHER LA LISTE</button>
-  </div>
-</div>
 
 </div>
 

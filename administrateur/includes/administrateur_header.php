@@ -33,10 +33,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-1 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Acceuil</a>
+                        <a class="nav-link active" aria-current="page" href="page_acceuil_administrateur.php">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Admin</a>
+                        <a class="nav-link" href="page_acceuil_administrateur.php">Admin</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Superviseur</a>
@@ -46,19 +46,19 @@
                       Gestion Opérations
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Gestionnaire Camions</a></li>
+                            <li><a class="dropdown-item disabled" href="#" >Gestionnaire Camions</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Gestionnaire Chauffeurs</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Gestionnaire Chauffeurs</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Gestionnaire Voyages</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Gestionnaire Voyages</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Tableau de bord</a>
+                        <a class="nav-link" href="../tableau_de_bord.php" tabindex="-1" aria-disabled="true">Tableau de bord</a>
                     </li>
                 </ul>
 
@@ -86,7 +86,7 @@
 
                     <li><hr class="dropdown-divider"></li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="../logout.php">
                         <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="#150452" class="bi bi-power" viewBox="0 0 16 16">
                         <path d="M7.5 1v7h1V1h-1z"/>
                         <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
