@@ -72,9 +72,9 @@ function estCeQueLeCamionAppartientAuTransporteur($refTransporteur,$refCamion){
   function estCeQueLeCritereEstConforme($refRequestDate,$dateEcheance){
     $dureeValidite=round((strtotime($dateEcheance)-strtotime($refRequestDate))/(60*60)/24,1);
        
-      if($dureeValidite>90){
+      if($dureeValidite>30){
         echo '<svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="green" d="M29.548 3.043a2.5 2.5 0 0 0-3.513.4L16 16.067l-3.508-4.414a2.5 2.5 0 0 0-3.915 3.112l5.465 6.875c.474.597 1.195.943 1.957.943s1.482-.35 1.957-.944L29.95 6.555c.86-1.08.68-2.654-.402-3.513zM24.5 24.5h-17v-17h12.756l2.385-3H6c-.83 0-1.5.67-1.5 1.5v20c0 .828.67 1.5 1.5 1.5h20a1.5 1.5 0 0 0 1.5-1.5V12.85l-3 3.774V24.5z"/></svg>';
-      }elseif($dureeValidite>30)
+      }elseif($dureeValidite>14)
       {
         echo '  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="orange" d="M236.7 188L148.8 36a24 24 0 0 0-41.6 0L19.3 188A23.9 23.9 0 0 0 40 224h176a23.9 23.9 0 0 0 20.7-36ZM120 104a8 8 0 0 1 16 0v40a8 8 0 0 1-16 0Zm8 88a12 12 0 1 1 12-12a12 12 0 0 1-12 12Z"/></svg>';
       }else{

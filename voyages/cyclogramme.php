@@ -263,7 +263,7 @@ if(isset($_GET['refVoy'])){
                 <td class="text-center align-middle fw-bold fs-4" style="width: 65px;"><div class="border border-dark rounded-circle" ><?php echo  round($targetDureeSurLeSiteDeLivraison/24,1) ?></div></td>
                 
                 <!--Traffic Light -->
-                <td class="text-center align-middle fw-bold fs-4" style="width: 80px;"><div <?php if((abs((strtotime($levoyage["dateSortieDuSite"])- strtotime($levoyage["dateArrSurSite"]))/(60*60)/24))>$targetDureeTrajetAllerSiteLivraison/24){echo'class="rounded-circle bg-danger"';}else{echo'class="rounded-circle bg-success"';}?>>&nbsp</div></td>
+                <td class="text-center align-middle fw-bold fs-4" style="width: 80px;"><div <?php if((abs((strtotime($levoyage["dateSortieDuSite"])- strtotime($levoyage["dateArrSurSite"]))/(60*60)/24))>$targetDureeSurLeSiteDeLivraison/24){echo'class="rounded-circle bg-danger"';}else{echo'class="rounded-circle bg-success"';}?>>&nbsp</div></td>
                  
             </tr>
             <tr>

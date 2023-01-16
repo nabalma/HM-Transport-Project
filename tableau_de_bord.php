@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION)) { session_start(); }
+?>
+
 <?php include "includes/header.php"; ?>
 
   <!----------------------------------------------------------------------------------------------------------------->
@@ -23,8 +27,18 @@
     </div>
     </div>
 
-    <div class="col"></div> 
+     <!--Personne connectée et retour a sa page -->
+    <div class="col mt-2">
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php echo($_SESSION['sess_prenom']) ?>
+            </button></div>
+          <a href="<?php if($_SESSION['sess_profil']=="Administrateur"){echo "administrateur/page_acceuil_administrateur.php";}else if($_SESSION['sess_profil']=="Gestionnaire des Voyages"){echo "voyages/page_acceuil_voyages.php";} ?>" class="col"><button class="btn btn-dark">Retour</button></a>
+        </div>
+    </div> 
   </div>
+  
 
   <div class="row mt-1">
 

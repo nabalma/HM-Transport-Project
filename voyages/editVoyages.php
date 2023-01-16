@@ -12,23 +12,12 @@ if(isset($_GET['refVoy'])){
 
     $lecamion=rechercherlesDonneesduCamion($row["ref_Camion_Voyage"]);
     $capaciteCamion=$lecamion["capacite_Compatriment_C1"]+$lecamion["capacite_Compatriment_C2"]+$lecamion["capacite_Compatriment_C3"]+$lecamion["capacite_Compatriment_C4"]+$lecamion["capacite_Compatriment_C5"]+$lecamion["capacite_Compatriment_C6"];
+
+
+
 }
 
 ?>
-
-<?php 
-$row;
-if(isset($_GET['req_Transporteur'])){
-    $requete=$_GET['req_Transporteur'];
-    $row = rechercherleVoyageDuSafeToDispatch($requete);
-    $ref=$row["ref_Voyage"];
-
-    $lecamion=rechercherlesDonneesduCamion($row["ref_Camion_Voyage"]);
-    $capaciteCamion=$lecamion["capacite_Compatriment_C1"]+$lecamion["capacite_Compatriment_C2"]+$lecamion["capacite_Compatriment_C3"]+$lecamion["capacite_Compatriment_C4"]+$lecamion["capacite_Compatriment_C5"]+$lecamion["capacite_Compatriment_C6"];
-}
-
-?>
-
 
 
 
@@ -210,7 +199,7 @@ if(isset($_GET['req_Transporteur'])){
                     <div class="mb-1 row">
                     <div class="col"><label type="text" class="form-control bg-light text-secondary" id="coulage">Coulage (Litres)</label></div>
                         <div class="col">
-                        <input type="text" class="form-control bg-light text-secondary" id="coulage" name="coulage" value=<?php echo $capaciteCamion-$row["volume_livre"] ?>></input>
+                        <input type="text" class="form-control bg-light text-secondary" id="coulage" name="coulage" value=<?php if($row["volume_livre"]!=0){echo $capaciteCamion-$row["volume_livre"];} ?>></input>
                         </div>                    
                     </div>
 
