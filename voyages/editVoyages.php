@@ -6,12 +6,17 @@
 
 <?php 
 $row;
+$freinte=0;
 if(isset($_GET['refVoy'])){
     $ref=$_GET['refVoy'];
     $row = rechercherleVoyage($ref);
 
     $lecamion=rechercherlesDonneesduCamion($row["ref_Camion_Voyage"]);
     $capaciteCamion=$lecamion["capacite_Compatriment_C1"]+$lecamion["capacite_Compatriment_C2"]+$lecamion["capacite_Compatriment_C3"]+$lecamion["capacite_Compatriment_C4"]+$lecamion["capacite_Compatriment_C5"]+$lecamion["capacite_Compatriment_C6"];
+
+    $leproduit=rechercherleproduit($row["req_Transporteur"]);
+    $tauxfreinte=rechercherlafreinteduproduit($leproduit);
+    $freinte=$tauxfreinte*$capaciteCamion;
 
 
 
@@ -204,9 +209,16 @@ if(isset($_GET['refVoy'])){
                     </div>
 
                     <div class="mb-1 row">
-                    <div class="col"><label type="text" class="form-control bg-light" id="">&nbsp</label></div>
+                    <div class="col"><label type="text" class="form-control bg-light" id="">Freinte (Litres)</label></div>
                         <div class="col">
-                        <input type="text" class="form-control bg-light text-secondary" id="" name="" value=""></input>
+                        <input type="text" class="form-control bg-light text-secondary" id="" name="freinte" value=<?php echo $freinte ?>></input>
+                        </div>                    
+                    </div>
+
+                    <div class="mb-1 row">
+                    <div class="col"><label type="text" class="form-control bg-light" id="">Volume Facturé (Litres)</label></div>
+                        <div class="col">
+                        <input type="text" class="form-control bg-light text-secondary" id="" name="volfacture" value=<?php if($row["volume_livre"]!=0){if($capaciteCamion-$row["volume_livre"]<$freinte){echo $capaciteCamion;}else{echo ($capaciteCamion-($capaciteCamion-$row["volume_livre"]-$freinte));}} ?>></input>
                         </div>                    
                     </div>
 
@@ -321,7 +333,7 @@ if(isset($_GET['refVoy'])){
 
             </div>
             <div class="ms-2 row"><label type="text" class="form-control bg-light fw-bold" id="">Commentaires sur le voyage</label></div>
-            <div class="ms-2 row"><textarea type="text" class="me-2 form-control bg-light text-dark" id="" name="commentaires"><?php echo $row["Commentaires"] ?></textarea></div>
+            <div class="ms-2 row"><textarea rows="4" type="text" class="me-2 form-control bg-light text-dark" id="" name="commentaires"><?php echo $row["Commentaires"] ?></textarea></div>
             <div class="ms-2 mt-1 mb-1 row">  
                 <button class="col btn btn-warning me-2" type="submit" value="" name="miseajourVoyage">Mise à Jour Voyage</button>
                 <a class="col btn btn-info" href="cyclogramme.php?refVoy=<?php echo $ref ?>" value="" name="visionnerCyclo">Voir le Cyclogramme</a>

@@ -1331,6 +1331,76 @@ function rechercherLeSafeToDispatch($requete){
 
 
 
+  //////////////////////////////////////////////////////////////////////////////
+function rechercherleproduit($requeteTransporteur){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $sql = "SELECT * FROM safetodispatchs WHERE ref_SafeToDispatch='$requeteTransporteur'";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+     return $row["refProduit"];
+                        ;
+    }
+  } else {
+    echo 
+    '
+    ';
+  }
+  $conn->close();
+  
+  } 
+  
+  
+   //////////////////////////////////////////////////////////////////////////////
+function rechercherlafreinteduproduit($refProduit){
+
+  $server="localhost";
+  $username="root";
+  $password="";
+  $db="db_transport";
+  
+  $conn = new mysqli($server,$username,$password,$db);
+  
+  // Check connection
+  if ($conn -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $conn -> connect_error;
+    exit();
+  }
+  
+  $sql = "SELECT * FROM produits WHERE ref_Produit='$refProduit'";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+     return $row["freinte_Produit"];
+                        ;
+    }
+  } else {
+    echo 
+    '
+    ';
+  }
+  $conn->close();
+  
+  }      
+
+
 
 
 

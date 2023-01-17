@@ -61,7 +61,7 @@
 
 <div class="ms-1 mb-1 row mt-1 btn btn-light mx-auto row w-75 text-danger fs-5">INFORMATIONS CAMION </div> 
 
-<div class="ms-1 row mt-1">
+<div class="ms-1 row mt-1 w-75">
 
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">1</label></div>
@@ -235,7 +235,7 @@
 
 <div class="ms-1 mb-1 row mt-1 btn btn-light row w-75 mx-auto text-danger fs-5">INFORMATIONS CHAUFFEUR</div>
 
-<div class="ms-1 row mt-1">
+<div class="ms-1 row mt-1 w-75">
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">14</label></div>
         <div class="col-5 fs-6 d-flex align-items-center">NOM ET PRENOM (S) DU CHAUFFEUR</div>
@@ -302,7 +302,7 @@
 
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">20</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center">LE CHAUFFEUR A-T-IL COMMIS UNE VIOLATION ? ?</div>
+        <div class="col-5 fs-6 d-flex align-items-center">LE CHAUFFEUR A-T-IL COMMIS UNE VIOLATION ?</div>
         <div class="col-3">
                     <div class="form-check form-check-inline me-5">
                         <input class="form-check-input" type="radio" name="commitViolation" id="commitViolation1" value="1">
@@ -368,7 +368,7 @@
 
 <div class="ms-1 mb-1 row mt-1 btn btn-light row w-75 mx-auto text-danger fs-5">SENSIBILISATIONS OBLIGATOIRES <span class="text-dark fs-6">(Sur la base des alertes HSE diffusées)</span></div>
 
-<div class="ms-1 row mt-1">
+<div class="ms-1 row mt-1 w-75">
     
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">26</label></div>
