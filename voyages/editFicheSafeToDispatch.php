@@ -68,7 +68,7 @@ if(isset($_GET["refSTD"])){
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">1</label></div>
         <div class="col-5 d-flex align-items-center" style="font-Size:13px">IMMATRICULATION TRACTEUR & CITERNE</div>
        
-        <div class="col-4">
+        <div class="col-5">
             
             <select class="form-select text-primary text-center px-1" aria-label="Default select example" name="refCamion" required>
             <?php designationCamionSafeToDispatch($safetoDispatch["refCamion"]);?>          
@@ -239,8 +239,23 @@ if(isset($_GET["refSTD"])){
 
 <div class="ms-3 mb-1 row mt-2 btn btn-light row mx-auto text-danger w-100 fs-5">INFORMATIONS CHAUFFEUR</div>
 
+ <!-- Ligne vierge dajustement -->
+<div class="ms-3 mb-1 row mt-2 row mx-auto text-danger w-100 fs-5"></div>
 
-<div class="ms-1 row mt-1">
+ <!-- 2ieme Page -->
+
+ <div class="mt-1 ms-1 row mb-1">
+        <div class="col "></div>
+        <div class="col-3 fs-6 text-end">Reference</div>
+        <div class="col-3">
+        <input type="text" class="form-control bg-light text-danger fs-6" id="refRequete" name="refRequete" value=<?php echo $requeteTransporteur ?>></input>
+        </div>
+        <div class="col" style="font-Size:13px">(Page 2 sur 2)</div>
+        <div class="col"></div>
+    </div>
+
+
+
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">14</label></div>
         <div class="col-5 d-flex align-items-center" style="font-Size:13px">NOM ET PRENOM (S) DU CHAUFFEUR</div>
@@ -286,34 +301,24 @@ if(isset($_GET["refSTD"])){
         <div class="col" style="font-size: 11px; border-bottom:1px solid black;border-top:1px solid black;">En cas de renouvellement, joindre une copie de la dernière visite</div>    
     </div>
 
-    <!-- 2ieme Page -->
-
-    <div class="mt-1 ms-1 row mb-1">
-        <div class="col "></div>
-        <div class="col-3 fs-6 text-end">Reference</div>
-        <div class="col-3">
-        <input type="text" class="form-control bg-light text-danger fs-6" id="refRequete" name="refRequete" value=<?php echo $requeteTransporteur ?>></input>
-        </div>
-        <div class="col" style="font-Size:13px">(Page 2 sur 2)</div>
-        <div class="col"></div>
-</div>
+   
 
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">18</label></div>
         <div class="col-5 d-flex align-items-center" style="font-Size:13px">PRECISER LE DERNIER TRAJET EFFECTUE (ALLER - RETOUR)</div>
-        <div class="col-3">   
-        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet"><?php echo $safetoDispatch["dernierTrajet"]; ?></textarea>                    
+        <div class="col-4">   
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;width:250px" class="form-control bg-light text-primary" id="dernierTrajet" name="dernierTrajet"><?php echo $safetoDispatch["dernierTrajet"]; ?></textarea>                    
         </div>
-        <div class="col"></div>
+        
     </div>
 
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">19</label></div>
         <div class="col-5 d-flex align-items-center" style="font-Size:13px">DATE DEBUT ET FIN DU DERNIER TRAJET (ALLER - RETOUR)</div>
-        <div class="col-3">
-        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet"><?php echo $safetoDispatch["datedernierTrajet"]; ?></textarea>                              
+        <div class="col-4">
+        <textarea rows="1" style="font-size:10px;margin-top:1px;margin-bottom:1.5px;width:250px" class="form-control bg-light text-primary" id="datedernierTrajet" name="datedernierTrajet"><?php echo $safetoDispatch["datedernierTrajet"]; ?></textarea>                              
         </div>
-        <div class="col"></div>
+       
     </div>
 
     <div class="ms-1 row mb-1">
@@ -380,12 +385,12 @@ if(isset($_GET["refSTD"])){
 
     
    
-</div>
 
 
-<div class="ms-1 mb-1 row mt-2 btn btn-light row mx-auto text-danger fs-5">SENSIBILISATIONS OBLIGATOIRES <span class="text-dark fs-6">(Sur la base des alertes HSE diffusées)</span></div>
 
-<div class="ms-1 row mt-1">
+<div class="ms-1 mb-1 row mt-2 btn btn-light row mx-auto text-danger w-100 fs-5">SENSIBILISATIONS OBLIGATOIRES <span class="text-dark fs-6">(Sur la base des alertes HSE diffusées)</span></div>
+
+
     
     <div class="ms-1 row mb-1">
         <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">26</label></div>
@@ -406,25 +411,6 @@ if(isset($_GET["refSTD"])){
         <div class="col" style="font-size: 11px;">A compter de la diffusion de la présente liste, Total Burkina fera un rappel des ALERTES HSE pour toute fin utile.</div>
     </div>
 
-  
-
-    <div class="ms-1 row mb-1">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">28</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center"></div>
-        <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="" name="" ></input>          
-        </div>
-        <div class="col" style="font-size: 11px;"></div>
-    </div>
-
-    <div class="ms-1 row mb-1">
-        <div class="fs-6 btn btn-secondary text-center align-items-center" style="width:40px"><label for="">29</label></div>
-        <div class="col-5 fs-6 d-flex align-items-center"></div>
-        <div class="col-3">
-        <input type="text" class="form-control bg-light text-primary text-center" id="" name="" ></input>          
-        </div>
-        <div class="col" style="font-size: 11px;border-bottom:1px solid black;"></div>
-    </div>
 
     <div class="ms-1 row mb-1">
         <div class="col mx-auto"></div>
@@ -436,11 +422,25 @@ if(isset($_GET["refSTD"])){
     </div>
     </form>
    
-</div>
+    <div class="mt-1 card ms-1 mx-auto row mb-2" style="width:400px;">
+        <div class="row fw-bold h-25 mx-auto">VISA TRANSPORTEUR</div>
+        <div class="row h-25 mx-auto fs-6">Noms et Prenoms</div>
+        <div class="row mx-auto">
+            -------------------
+            -------------------
+            -------------------
+        </div>
+        <div class="row mx-auto">
+            -------------------
+            -------------------
+            -------------------
+        </div>      
+        
+    </div>
+
 
 
 
 
 </div>
 <!-------------------------------------------------------------------->
-<?php include "includes/footer.php"; ?>
