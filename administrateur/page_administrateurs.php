@@ -42,49 +42,49 @@
             <form method="POST" action="depotsChargements/ajoutDepotChargement.php">        
             <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="designation" name="designationDepotChargement" placeholder="Désignation Dépot Chargement">
+            <input required type="text" class="form-control" id="designation" name="designationDepotChargement" placeholder="Désignation Dépot Chargement">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeTrajetAlleeChargementTarget" name="dureeTrajetAlleeChargementTarget" placeholder="Durée Trajet Allée (Target)">
+            <input required type="text" class="form-control" id="dureeTrajetAlleeChargementTarget" name="dureeTrajetAlleeChargementTarget" placeholder="Durée Trajet Allée (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeAvantChargementTarget" name="dureeAvantChargementTarget" placeholder="Durée Avt Chargement (Target)">
+            <input required type="text" class="form-control" id="dureeAvantChargementTarget" name="dureeAvantChargementTarget" placeholder="Durée Avt Chargement (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeChargementTarget" name="dureeChargementTarget" placeholder="Durée Chargement (Target)">
+            <input required type="text" class="form-control" id="dureeChargementTarget" name="dureeChargementTarget" placeholder="Durée Chargement (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeFormaliteApresChargementTarget" name="dureeFormaliteApresChargementTarget" placeholder="Durée Formalité Apr Chargt (Target)">
+            <input required type="text" class="form-control" id="dureeFormaliteApresChargementTarget" name="dureeFormaliteApresChargementTarget" placeholder="Durée Formalité Apr Chargt (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeTrajetRetourVersFrontiereTarget" name="dureeTrajetRetourVersFrontiereTarget" placeholder="Durée Trajet Retour DepotFrontiere (Target)">
+            <input required type="text" class="form-control" id="dureeTrajetRetourVersFrontiereTarget" name="dureeTrajetRetourVersFrontiereTarget" placeholder="Durée Trajet Retour DepotFrontiere (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeFormaliteTransitFrontiereTarget" name="dureeFormaliteTransitFrontiereTarget" placeholder="Durée Formalités Transit Frontière (Target)">
+            <input required type="text" class="form-control" id="dureeFormaliteTransitFrontiereTarget" name="dureeFormaliteTransitFrontiereTarget" placeholder="Durée Formalités Transit Frontière (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeTrajetRetourFrontiereArriveeTarget" name="dureeTrajetRetourFrontiereArriveeTarget" placeholder="Durée Trajet Retour FrontiereArrivée (Target)">
+            <input required type="text" class="form-control" id="dureeTrajetRetourFrontiereArriveeTarget" name="dureeTrajetRetourFrontiereArriveeTarget" placeholder="Durée Trajet Retour FrontiereArrivée (Target)">
           </div>
         </div>        
 
@@ -117,49 +117,49 @@
             <form method="POST" action="depotsLivraisons/ajoutDepotLivraison.php">
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="designationDepotLivraison" name="designationDepotLivraison" placeholder="Désignation Dépot Livraison">
+            <input required type="text" class="form-control" id="designationDepotLivraison" name="designationDepotLivraison" placeholder="Désignation Dépot Livraison">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeTrajetAlleeLivraisonTarget" name="dureeTrajetAlleeLivraisonTarget" placeholder="Durée Trajet Allée Livraison (Target)">
+            <input required type="text" class="form-control" id="dureeTrajetAlleeLivraisonTarget" name="dureeTrajetAlleeLivraisonTarget" placeholder="Durée Trajet Allée Livraison (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeAvantLivraisonTarget" name="dureeAvantLivraisonTarget" placeholder="Durée Avant Livraison (Target)">
+            <input required type="text" class="form-control" id="dureeAvantLivraisonTarget" name="dureeAvantLivraisonTarget" placeholder="Durée Avant Livraison (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeLivraisonTarget" name="dureeLivraisonTarget" placeholder="Durée Livraison (Target)">
+            <input required type="text" class="form-control" id="dureeLivraisonTarget" name="dureeLivraisonTarget" placeholder="Durée Livraison (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeFormaliteApresLivraisonTarget" name="dureeFormaliteApresLivraisonTarget" placeholder="Durée Formalité Apr Livr (Target)">
+            <input required type="text" class="form-control" id="dureeFormaliteApresLivraisonTarget" name="dureeFormaliteApresLivraisonTarget" placeholder="Durée Formalité Apr Livr (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeTrajetRetourLivraisonTarget" name="dureeTrajetRetourLivraisonTarget" placeholder="Durée Trajet Retour Livraison (Target)">
+            <input required type="text" class="form-control" id="dureeTrajetRetourLivraisonTarget" name="dureeTrajetRetourLivraisonTarget" placeholder="Durée Trajet Retour Livraison (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="" name="" placeholder="" style="background-color:lightgray">
+            <input required type="text" class="form-control" id="" name="" placeholder="" style="background-color:lightgray">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="" name="" placeholder="" style="background-color:lightgray">
+            <input required type="text" class="form-control" id="" name="" placeholder="" style="background-color:lightgray">
           </div>
         </div>
 
@@ -192,19 +192,19 @@
             <form method="POST" action="marketers/ajoutMarketer.php">
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="designationMarketer" name="designationMarketer" placeholder="Désignation Marketer">
+            <input required type="text" class="form-control" id="designationMarketer" name="designationMarketer" placeholder="Désignation Marketer">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeEmissionOCTarget" name="dureeEmissionOCTarget" placeholder="Durée Emission OC (Target)">
+            <input required type="text" class="form-control" id="dureeEmissionOCTarget" name="dureeEmissionOCTarget" placeholder="Durée Emission OC (Target)">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeEmissionBonSonabhyTarget" name="dureeEmissionBonSonabhyTarget" placeholder="Durée Emission Bon Sonabhy (Target)">
+            <input required type="text" class="form-control" id="dureeEmissionBonSonabhyTarget" name="dureeEmissionBonSonabhyTarget" placeholder="Durée Emission Bon Sonabhy (Target)">
           </div>
         </div>
 
@@ -242,13 +242,13 @@
             <form method="POST" action="transitaires/ajoutTransitaire.php">        
             <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="designationTransitaire" name="designationTransitaire" placeholder="Désignation Transitaire">
+            <input required type="text" class="form-control" id="designationTransitaire" name="designationTransitaire" placeholder="Désignation Transitaire">
           </div>
         </div>
 
         <div class="mb-1 row d-flex justify-content-center">
           <div class="col-sm-10 w-100">
-            <input type="text" class="form-control" id="dureeTraitementBINGOTarget" name="dureeTraitementBINGOTarget" placeholder="Durée Traitement BINGO (Target)">
+            <input required type="text" class="form-control" id="dureeTraitementBINGOTarget" name="dureeTraitementBINGOTarget" placeholder="Durée Traitement BINGO (Target)">
           </div>
         </div>
        
